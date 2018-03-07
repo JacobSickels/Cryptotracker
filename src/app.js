@@ -6,14 +6,15 @@ import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetCryptos } from './actions/cryptos';
 import LoadingPage from './components/LoadingPage';
+import moment from 'moment';
 
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
-//import './cron/cron-test';
-
 import { firebase } from './firebase/firebase';
+
+import filtersReducer from './reducers/filters';
 
 const store = configureStore();
 

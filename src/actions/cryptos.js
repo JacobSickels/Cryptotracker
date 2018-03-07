@@ -1,4 +1,5 @@
 import database from '../firebase/firebase';
+import moment from 'moment';
 
 // SET_CRYPTOS
 export const setCryptos = (cryptos) => ({
@@ -29,6 +30,8 @@ export const startSetCryptos = () => {
                     
                     if(childSnapshot.key === 'bitcoin') {
                         Object.keys(childSnapshot.val()).forEach(function(key) {
+                            //let data = childSnapshot.val()[key];
+                            //console.log(moment(data.timestamp).tz('America/Chicago').format());
                             cryptos.bitcoin.push(childSnapshot.val()[key]);
                         });
                     }

@@ -1,8 +1,10 @@
 import React from 'react';
+import CryptoList from './CryptoList';
+
 
 const DashboardPage = () => (
     <div>
-        Dashboard page content
+        <CryptoList />
     </div>
 );
 

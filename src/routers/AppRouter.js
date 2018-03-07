@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
+import CryptoListItem from '../components/CryptoListItem';
 import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
@@ -23,6 +24,10 @@ const AppRouter = () => (
                 <PrivateRoute 
                     path="/dashboard"
                     component={DashboardPage}
+                />
+                <PrivateRoute 
+                    path="/i/:currency"
+                    component={CryptoListItem}
                 />
                 <Route 
                     component={NotFoundPage}
