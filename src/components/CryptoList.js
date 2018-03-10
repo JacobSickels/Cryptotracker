@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import selectCryptos from '../selectors/cryptos';
+import { LineChart, Line } from 'recharts';
 
 import CryptoListItem from './CryptoListItem';
 
