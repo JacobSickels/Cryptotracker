@@ -11,9 +11,23 @@
 
     &--link {
         background: none;
+        font-size: 1.25rem;
     }
     &--secondary {
         background: $light-grey;
     }
+    &--dropdown {
+        background-color: white;
+        padding: 0;
+        font-size: 1rem;
+        width: 100%;
+        border: none;
+        padding: $s-size 0;
+    }
 }
 
+//Overriding Materialize Styles
+.btn-drop {
+   box-shadow: none;
+   background: blue;
+}

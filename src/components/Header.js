@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
+import { Dropdown, NavItem, Button } from 'react-materialize';
 
 export const Header = ({ startLogout }) => (
     <header className="header">
@@ -10,7 +11,17 @@ export const Header = ({ startLogout }) => (
                 <Link className="header__title" to="/dashboard">
                     <h1>CryptoTracker</h1>
                 </Link>
-                <button className="button button--link" onClick={startLogout}>Logout</button>
+                <div>
+                    <button className="button button--link">Exchange</button>
+                    <Dropdown
+                        trigger={
+                            <button data-beloworigin="true" className="button button--link">Account</button>
+                        }>
+                        <button className="button--dropdown">Settings</button>
+                        <NavItem divider />
+                        <button className="button--dropdown" onClick={startLogout}>Logout</button>
+                    </Dropdown>
+                </div>
             </div>
         </div>
     </header>

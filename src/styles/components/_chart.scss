@@ -1,0 +1,13 @@
+.chart {
+    
+    &-container {
+        height: 500px;
+        width: 100%;
+    }
+
+    &-title {
+        font-size: 2.5rem;
+        margin: $m-size;
+        margin-left: 0;
+    }
+}
