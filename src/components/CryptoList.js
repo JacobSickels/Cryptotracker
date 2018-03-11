@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import selectCryptos from '../selectors/cryptos';
 import { LineChart, Line } from 'recharts';
 
-import CryptoListItem from './CryptoListItem';
+import CryptoItem from './CryptoItem';
 
 export const CryptoList = (props) => (
         <div className="content-container">
-            <CryptoListItem crypto={props.cryptos.bitcoin} name='Bitcoin'/>
-            <CryptoListItem crypto={props.cryptos.litecoin} name='Litecoin'/> 
-            <CryptoListItem crypto={props.cryptos.ethereum} name='Ethereum'/>
+            <CryptoItem crypto={props.cryptos.bitcoin} name='Bitcoin'/>
+            <CryptoItem crypto={props.cryptos.litecoin} name='Litecoin'/> 
+            <CryptoItem crypto={props.cryptos.ethereum} name='Ethereum'/>
         </div>
 );
 

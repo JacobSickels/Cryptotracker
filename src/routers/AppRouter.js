@@ -2,12 +2,12 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
-import CryptoListItem from '../components/CryptoListItem';
 import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import FilterCrypto from '../components/FilterCrypto';
 
 export const history = createHistory();
 
@@ -27,7 +27,7 @@ const AppRouter = () => (
                 />
                 <PrivateRoute 
                     path="/i/:currency"
-                    component={CryptoListItem}
+                    component={FilterCrypto}
                 />
                 <Route 
                     component={NotFoundPage}

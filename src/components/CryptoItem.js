@@ -8,7 +8,7 @@ import { Row, Col, Button, Icon } from 'react-materialize';
 //Check ExenseForm in Expensify for passing stuff to component state. I need this for populating specific page graph.
 
 
-export default class CryptoListItem extends React.Component {
+export default class CryptoItem extends React.Component {
     
     constructor(props) {
         super(props);
@@ -20,21 +20,20 @@ export default class CryptoListItem extends React.Component {
         }
     }
 
-
-
     render() {
         return (
             <div>
-                <h1 className="chart-title"> {this.props.name} </h1>
+                <Link className="chart-title__link" to={`/i/${this.props.name.toLowerCase()}`} >
+                    <h1 className="chart-title"> {this.props.name} </h1>
+                </Link>
                 <div className="chart-container">
                     <ResponsiveContainer height='100%' width='100%'>
                         <LineChart data={this.state.data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                             <XAxis dataKey="timestamp"/>
                             <YAxis dataKey="amount" domain={["dataMin", "dataMax"]}/>
-                            <CartesianGrid strokeDasharray="3 3"/>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#FFDDED"/>
                             <Tooltip/>
-                            <Legend />
-                            <Line type="monotone" dataKey="amount" stroke="#8884d8" activeDot={{r: 8}}/>
+                            <Line type="monotone" dataKey="amount" stroke="#7F4276" activeDot={{r: 8}}/>
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
