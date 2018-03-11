@@ -11,7 +11,6 @@ import FilterCrypto from '../components/FilterCrypto';
 
 export const history = createHistory();
 
-
 const AppRouter = () => (
     <Router history={history}>
         <div>

@@ -33,6 +33,11 @@
             color: $orange;
         }
     }
+
+
+    &:focus {
+        background: none;
+    }
 }
 
 //Overriding Materialize Styles

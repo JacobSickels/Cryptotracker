@@ -39,7 +39,7 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(login(user.uid));
         
         store.dispatch(startSetCryptos()).then(() => {
-            console.log(store.getState());
+            //console.log(store.getState());
             renderApp();
             //If they are on the login page
             if(history.location.pathname === '/') {

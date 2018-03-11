@@ -1,6 +1,20 @@
 .footer {
     background: $dark-purple;
     color: white;
+    height: 150px;
+    position: relative;
+
+    &-end {
+        background: darken($dark-purple, 5%);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    a {
+        color: $light-purple;
+        cursor: pointer;
+    }
 
     p {
         margin: 0;
