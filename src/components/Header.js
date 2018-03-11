@@ -12,6 +12,7 @@ export const Header = ({ startLogout }) => (
                     <h1>CryptoTracker</h1>
                 </Link>
                 <div>
+                    <Link className="button button--link" to="/dashboard">Dashboard</Link>
                     <button className="button button--link">Exchange</button>
                     <Dropdown
                         trigger={

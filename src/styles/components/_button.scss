@@ -12,6 +12,11 @@
     &--link {
         background: none;
         font-size: 1.25rem;
+        
+        &:hover {
+            color: $orange;
+        }
+
     }
     &--secondary {
         background: $light-grey;
@@ -23,6 +28,10 @@
         width: 100%;
         border: none;
         padding: $s-size 0;
+
+        &:hover {
+            color: $orange;
+        }
     }
 }
 

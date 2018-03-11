@@ -22,8 +22,7 @@ class FilterCrypto extends React.Component {
 
     render() {
         return (
-            <div className="content-container">
-                <h1>Filter Crypto</h1>
+            <div>
                 <CryptoItem crypto={this.props.crypto} name={this.props.name} />
             </div>
         );

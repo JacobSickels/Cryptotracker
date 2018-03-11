@@ -3,16 +3,22 @@
     &-container {
         height: 500px;
         width: 100%;
+        margin-bottom: $l-size;
     }
 
     &-title {
-        font-size: 2.5rem;
-        margin: $m-size;
-        margin-left: 0;
+        background: $light-grey;
 
         &__link {
             text-decoration: none;
             color: $light-purple;
+        }
+
+        h1 {
+            font-size: 2.5rem; 
+            margin: 0;
+            padding: $s-size 0;
+            margin-bottom: $s-size;
         }
 
     }

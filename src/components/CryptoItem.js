@@ -23,19 +23,25 @@ export default class CryptoItem extends React.Component {
     render() {
         return (
             <div>
-                <Link className="chart-title__link" to={`/i/${this.props.name.toLowerCase()}`} >
-                    <h1 className="chart-title"> {this.props.name} </h1>
-                </Link>
-                <div className="chart-container">
-                    <ResponsiveContainer height='100%' width='100%'>
-                        <LineChart data={this.state.data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                            <XAxis dataKey="timestamp"/>
-                            <YAxis dataKey="amount" domain={["dataMin", "dataMax"]}/>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#FFDDED"/>
-                            <Tooltip/>
-                            <Line type="monotone" dataKey="amount" stroke="#7F4276" activeDot={{r: 8}}/>
-                        </LineChart>
-                    </ResponsiveContainer>
+                <div className="chart-title">
+                    <div className="content-container">
+                        <Link className="chart-title__link" to={`/i/${this.props.name.toLowerCase()}`} >
+                            <h1> {this.props.name} </h1>
+                        </Link>
+                    </div>
+                </div>
+                <div className="content-container">
+                    <div className="chart-container">
+                        <ResponsiveContainer height='100%' width='100%'>
+                            <LineChart data={this.state.data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                                <XAxis dataKey="timestamp"/>
+                                <YAxis dataKey="amount" domain={["dataMin", "dataMax"]}/>
+                                <CartesianGrid strokeDasharray="3 3" stroke="#FFDDED"/>
+                                <Tooltip/>
+                                <Line type="monotone" dataKey="amount" stroke="#7F4276" activeDot={{r: 8}}/>
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
                 </div>
             </div>
         );
