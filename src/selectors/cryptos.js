@@ -18,9 +18,11 @@ export default (cryptos, {startDate, endDate}) => {
             return startDateMatch && endDateMatch;
         });
 
+        //Fixes issue on Chrome
         filteredCryptos[prop].sort((a, b) => {
-            return a.timestamp > b.timestamp;
+            return a.timestamp - b.timestamp;
         });
+
     }
 
     return filteredCryptos;
