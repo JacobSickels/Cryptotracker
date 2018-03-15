@@ -22,6 +22,6 @@ export default (cryptos, {startDate, endDate}) => {
             return a.timestamp > b.timestamp;
         });
     }
-    
+
     return filteredCryptos;
 };

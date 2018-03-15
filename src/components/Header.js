@@ -13,7 +13,7 @@ export const Header = ({ startLogout }) => (
                 </Link>
                 <div>
                     <Link className="button button--link" to="/dashboard">Dashboard</Link>
-                    <button className="button button--link">Exchange</button>
+                    <Link className="button button--link" to="/dashboard">Exchange</Link>
                     <Dropdown
                         trigger={
                             <button data-beloworigin="true" className="button button--link">Account</button>

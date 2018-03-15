@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import selectCryptos from '../selectors/cryptos';
 import { LineChart, Line } from 'recharts';
+import { Route, Redirect } from 'react-router-dom';
 
 import CryptoItem from './CryptoItem';
 
@@ -9,15 +10,6 @@ class FilterCrypto extends React.Component {
 
     constructor(props) {
         super(props);
-        let pick = [];
-        
-
-        this.state = {
-        
-          crypto: []     
-        
-        };
-
     }
 
     render() {
