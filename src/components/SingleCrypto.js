@@ -5,8 +5,9 @@ import { LineChart, Line } from 'recharts';
 import { Route, Redirect } from 'react-router-dom';
 
 import CryptoItem from './CryptoItem';
+import CryptoFilter from './CryptoFilter';
 
-class FilterCrypto extends React.Component {
+class SingleCrypto extends React.Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +16,8 @@ class FilterCrypto extends React.Component {
     render() {
         return (
             <div>
-                <CryptoItem crypto={this.props.crypto} name={this.props.name} />
+                <CryptoFilter />
+                <CryptoItem name={this.props.name} />
             </div>
         );
     };
@@ -25,9 +27,8 @@ class FilterCrypto extends React.Component {
 
 const mapStateToProps = (state, props) => {
     return {
-        name: props.match.params.currency.charAt(0).toUpperCase() + props.match.params.currency.slice(1),
-        crypto: selectCryptos(state.cryptos, state.filters)[props.match.params.currency]
+        name: props.match.params.currency.charAt(0).toUpperCase() + props.match.params.currency.slice(1)
     };
 };
 
-export default connect(mapStateToProps)(FilterCrypto);
+export default connect(mapStateToProps)(SingleCrypto);

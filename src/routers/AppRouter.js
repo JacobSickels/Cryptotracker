@@ -7,7 +7,7 @@ import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import FilterCrypto from '../components/FilterCrypto';
+import SingleCrypto from '../components/SingleCrypto';
 
 export const history = createHistory();
 
@@ -26,7 +26,7 @@ const AppRouter = () => (
                 />
                 <PrivateRoute 
                     path="/i/:currency"
-                    component={FilterCrypto}
+                    component={SingleCrypto}
                 />
                 <Route 
                     component={NotFoundPage}
