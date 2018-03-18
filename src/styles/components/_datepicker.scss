@@ -1,0 +1,41 @@
+.DateInput {
+    &__display {
+        &-text {
+            &--focused {
+                background: $light-purple !important;
+                border-color: $light-purple !important;
+                color: $dark-purple !important;
+            }
+        }
+    }
+}
+
+.CalendarDay {
+    &--hovered {
+        &-span {
+            background: $light-purple !important;
+            border: 1px double $light-purple !important;
+            color: white !important;
+        }
+    }
+
+
+    &--selected {
+        background: $dark-purple !important;
+        border: 1px double $dark-purple !important;
+
+        &-start, &-end {
+            background: $purple !important;
+            border: 1px double $purple !important;
+        }
+
+        &-span {
+            background: $light-purple !important;
+            border: 1px double $light-purple !important;
+        }
+    }
+}
+
+.DayPickerKeyboardShortcuts__show--bottom-right {
+    border-right: 33px solid $dark-purple !important;
+}

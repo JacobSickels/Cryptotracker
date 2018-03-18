@@ -11,7 +11,6 @@ export class CryptoFilter extends React.Component {
     };
 
     onDatesChange = ({ startDate, endDate }) => {
-        console.log(this.props.filters);
         this.props.setStartDate(startDate);
         this.props.setEndDate(endDate);
     }
@@ -22,7 +21,7 @@ export class CryptoFilter extends React.Component {
 
     render() {
         return (
-            <div class="content-container">
+            <div className="content-container">
                 <DateRangePicker 
                     startDate={this.props.filters.startDate}
                     endDate={this.props.filters.endDate}

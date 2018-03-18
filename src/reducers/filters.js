@@ -21,6 +21,12 @@ export default (state = filtersReducerDefaultState, action) => {
                 ...state,
                 endDate: action.endDate
             }
+        case 'SET_DEFAULT_DATES':
+            return {
+                ...state,
+                startDate: action.defaultState.startDate,
+                endDate: action.defaultState.endDate
+            }    
         default: return state;
     }
 

@@ -4,7 +4,7 @@ import { LineChart, Line } from 'recharts';
 
 import CryptoItem from './CryptoItem';
 
-const CryptoList = (props) => (
+const CryptoList = () => (
         <div>
             <CryptoItem name='Bitcoin'/>
             <CryptoItem name='Litecoin'/> 
