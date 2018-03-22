@@ -1,7 +1,7 @@
 .footer {
     background: $dark-purple;
     color: white;
-    height: 150px;
+    height: 100px;
     position: relative;
 
     &-end {
@@ -14,6 +14,7 @@
     a {
         color: $light-purple;
         cursor: pointer;
+        margin-left: 0.5rem;
     }
 
     p {
@@ -21,5 +22,6 @@
         padding: 0;
         padding: $s-size;
         padding-left: 0;
+        font-size: 1.5rem;
     }
 }

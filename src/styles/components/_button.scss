@@ -11,12 +11,15 @@
 
     &--link {
         background: none;
-        font-size: 1.25rem;
+        font-size: 1.75rem;
         
         &:hover {
             color: $orange;
         }
 
+    }
+    &--hidden {
+        display: none !important;
     }
     &--secondary {
         background: $light-grey;

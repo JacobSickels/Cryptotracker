@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; //Eventually linking to the specific cr
 import moment from 'moment';
 import momentTimezone from 'moment-timezone';
 import { connect } from 'react-redux';
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import selectCryptos from '../selectors/cryptos';
 
 export class CryptoItem extends React.Component {
@@ -20,15 +20,25 @@ export class CryptoItem extends React.Component {
         return (
             <div>
                 <div className="chart-title">
-                    <div className="content-container">
+                    <div className="container">
                         <div>
-                            <Link className="chart-title__link" to={`/i/${this.props.name.toLowerCase()}`} >
+                            <Link className="chart-title__link" to={`/filter/${this.props.name.toLowerCase()}`} >
                                 <h1> {this.props.name} </h1>
                             </Link>
+                            <div>
+                                <p>
+                                {((this.props.slope / this.props.data.length) * 100).toFixed(2)} %
+                                </p>
+                            </div>
+                            <p>
+                            {
+                                console.log((this.props.slope / this.props.data.length) * 100)
+                            }
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div className="content-container">
+                <div className="container">
                     <button 
                         onClick={() => {
                             const show = this.state.showTrendLine;
@@ -39,10 +49,10 @@ export class CryptoItem extends React.Component {
                     }      
                     </button>
                 </div>
-                <div className="content-container">
+                <div className="container">
                     <div className="chart-container">
                         <ResponsiveContainer height='100%' width='100%'>
-                            <AreaChart data={this.props.data} margin={{top: 5, right: 10, left: 30, bottom: 5}}>
+                            <LineChart data={this.props.data} margin={{top: 5, right: 10, left: 30, bottom: 5}}>
                                 <XAxis dataKey="timestamp"/>
                                 <YAxis tickSize={10} dataKey="amount" domain={["dataMin", "dataMax"]}/>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#FFDDED"/>
@@ -50,11 +60,11 @@ export class CryptoItem extends React.Component {
                                 <Legend />
                                 {
                                     (this.state.showTrendLine) && (
-                                        <Area dot={false} type="monotone" dataKey="trend" stroke="#E477D4" strokeWidth={4} fill="none"/>
+                                        <Line dot={false} type="monotone" dataKey="trend" stroke="#E477D4" strokeWidth={4}/>
                                     )
                                 }
-                                <Area dot={false} type="monotone" dataKey="amount" stroke="#7F4276" fill="#7F4276" />
-                            </AreaChart>
+                                <Line dot={false} type="monotone" dataKey="amount" stroke="#7F4276"/>
+                            </LineChart>
                         </ResponsiveContainer>
                     </div>
                 </div>
@@ -97,7 +107,9 @@ const mapStateToProps = (state, props) => {
                 const amount = parseFloat(entry.amount);
                 const trend = slope * index + yIntercept;
                 return { timestamp, amount, trend }
-            })
+            }),
+        slope
+
     };
 };
 

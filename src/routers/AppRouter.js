@@ -8,6 +8,7 @@ import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import SingleCrypto from '../components/SingleCrypto';
+import Documentation from '../components/Documentation';
 
 export const history = createHistory();
 
@@ -25,8 +26,12 @@ const AppRouter = () => (
                     component={DashboardPage}
                 />
                 <PrivateRoute 
-                    path="/i/:currency"
+                    path="/filter/:currency"
                     component={SingleCrypto}
+                />
+                <Route
+                    path="/docs" 
+                    component={Documentation}
                 />
                 <Route 
                     component={NotFoundPage}
