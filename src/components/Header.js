@@ -13,13 +13,11 @@ export const Header = ({ startLogout }) => (
                 </Link>
                 <div>
                     <Link className="button button--link" to="/dashboard">Dashboard</Link>
-                    <Link className="button button--link" to="/dashboard">Exchange</Link>
+                    <Link className="button button--link" to="/exchange">Exchange</Link>
                     <Dropdown
                         trigger={
                             <button data-beloworigin="true" className="button button--link">Account</button>
                         }>
-                        <button className="button--dropdown">Settings</button>
-                        <NavItem divider />
                         <button className="button--dropdown" onClick={startLogout}>Logout</button>
                     </Dropdown>
                 </div>

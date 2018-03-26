@@ -1,3 +1,17 @@
+.date {
+    &-container {
+        background: $light-grey;
+        text-align: center;
+
+        .DateRangePicker {
+            margin: $s-size;
+        }
+
+    }
+
+}
+
+
 .DateInput {
     &__display {
         &-text {
@@ -9,7 +23,7 @@
         }
     }
 }
-
+ 
 .CalendarDay {
     &--hovered {
         &-span {

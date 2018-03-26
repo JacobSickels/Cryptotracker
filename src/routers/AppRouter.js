@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
 import DashboardPage from '../components/DashboardPage';
+import ExchangePage from '../components/ExchangePage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -24,6 +25,10 @@ const AppRouter = () => (
                 <PrivateRoute 
                     path="/dashboard"
                     component={DashboardPage}
+                />
+                <PrivateRoute 
+                    path="/exchange"
+                    component={ExchangePage}
                 />
                 <PrivateRoute 
                     path="/filter/:currency"

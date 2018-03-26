@@ -3,7 +3,7 @@
     &-container {
         height: 500px;
         width: 100%;
-        margin-bottom: $l-size;
+        margin: $l-size 0;
     }
 
     &-title {
@@ -14,11 +14,20 @@
             color: $light-purple;
         }
 
+        &--container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+
+            button {
+                height: 50%;
+            }
+        }
+
         h1 {
             font-size: 3rem; 
             margin: 0;
-            padding: $s-size 0;
-            margin-bottom: $s-size;
+            padding: $m-size 0;
         }
 
     }

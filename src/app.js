@@ -5,6 +5,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetCryptos } from './actions/cryptos';
+import { startSetExchange } from './actions/exchange';
 import LoadingPage from './components/LoadingPage';
 import moment from 'moment';
 
@@ -39,12 +40,21 @@ firebase.auth().onAuthStateChanged((user) => {
         store.dispatch(login(user.uid));
         
         store.dispatch(startSetCryptos()).then(() => {
-            //console.log(store.getState());
+            
+            //dispatching exchange rates for /exchange
+            store.dispatch(startSetExchange());
+
             renderApp();
             //If they are on the login page
             if(history.location.pathname === '/') {
                 history.push('/dashboard');
             }
+
+            //If you enter app from /exchange you load to dashboard
+            if(history.location.pathname === '/exchange') {
+                history.push('/dashboard');
+            }
+
         });
         
     }

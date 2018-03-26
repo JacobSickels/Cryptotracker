@@ -1,0 +1,39 @@
+.exchange {
+    
+    min-height: 350px;
+    
+    .selector {
+        margin-top: $l-size;
+        margin-bottom: $l-size;
+        
+        input {
+            font-size: 2rem !important;
+            height: 4rem !important;
+        }
+
+        .dropdown-content li > span {
+            color: $purple !important;
+        }
+        
+        &:first-of-type {
+            margin-top: 125px;
+        }
+
+    }
+
+    .arrow {
+        text-align: center;
+    }
+
+    &-display {
+        background-color: $grey;
+        text-align: center;
+        h1 {
+            margin: 0;
+            padding: 0;
+            padding: $m-size 0;
+            color: white;
+            font-size: 64px;
+        }
+    }
+}

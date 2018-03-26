@@ -1,5 +1,4 @@
 import React from 'react';
-import selectCryptos from '../selectors/cryptos';
 import { LineChart, Line } from 'recharts';
 
 import CryptoItem from './CryptoItem';

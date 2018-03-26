@@ -21,40 +21,38 @@ export class CryptoItem extends React.Component {
             <div>
                 <div className="chart-title">
                     <div className="container">
-                        <div>
-                            <Link className="chart-title__link" to={`/filter/${this.props.name.toLowerCase()}`} >
-                                <h1> {this.props.name} </h1>
-                            </Link>
+                        <div className="chart-title--container">
                             <div>
-                                <p>
-                                {((this.props.slope / this.props.data.length) * 100).toFixed(2)} %
-                                </p>
+                                <Link className="chart-title__link" to={`/filter/${this.props.name.toLowerCase()}`} >
+                                    <h1> {this.props.name} </h1>
+                                </Link>
                             </div>
-                            <p>
+                            <button className="button--trend"
+                                onClick={() => {
+                                    const show = this.state.showTrendLine;
+                                    this.setState({showTrendLine: !show})
+                                }}>
                             {
-                                console.log((this.props.slope / this.props.data.length) * 100)
-                            }
-                            </p>
+                                (this.state.showTrendLine) ? 'Hide Trend' : 'Show Trend'
+                            }      
+                            </button>
+                            <div className="chart-title--percentage">
+                                 <h1 style={{
+                                     color:
+                                        (this.props.percentage >= 0) ? 'green' : 'red'
+                                     }}>
+                                    {this.props.percentage.toFixed(2)}% 
+                                </h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="container">
-                    <button 
-                        onClick={() => {
-                            const show = this.state.showTrendLine;
-                            this.setState({showTrendLine: !show})
-                        }}>
-                    {
-                        (this.state.showTrendLine) ? 'Hide Trend Line' : 'Show Trend Line'
-                    }      
-                    </button>
                 </div>
                 <div className="container">
                     <div className="chart-container">
                         <ResponsiveContainer height='100%' width='100%'>
                             <LineChart data={this.props.data} margin={{top: 5, right: 10, left: 30, bottom: 5}}>
                                 <XAxis dataKey="timestamp"/>
-                                <YAxis tickSize={10} dataKey="amount" domain={["dataMin", "dataMax"]}/>
+                                <YAxis tickSize={10} dataKey="amount" domain={["dataMin", "dataMax"]} allowDataOverflow={true} />
                                 <CartesianGrid strokeDasharray="3 3" stroke="#FFDDED"/>
                                 <Tooltip/>
                                 <Legend />
@@ -72,6 +70,7 @@ export class CryptoItem extends React.Component {
         );
     };
 }
+
 
 const mapStateToProps = (state, props) => {
     
@@ -97,18 +96,17 @@ const mapStateToProps = (state, props) => {
 
     const slope = topSlope / bottomSlope;
     const yIntercept = averageY - (slope * averageX);
+    const percentage = (crypto[crypto.length - 1].amount - crypto[0].amount) / crypto[0].amount * 100;
 
     return {
-        name: props.name.toLowerCase().charAt(0).toUpperCase() + props.name.toLowerCase().slice(1),
-        crypto,
-        data: selectCryptos(state.cryptos, state.filters)[props.name.toLowerCase()].map(
+        data: crypto.map(
             (entry, index) => {
                 const timestamp = moment(entry.timestamp).format('ha');
                 const amount = parseFloat(entry.amount);
                 const trend = slope * index + yIntercept;
                 return { timestamp, amount, trend }
             }),
-        slope
+        percentage
 
     };
 };

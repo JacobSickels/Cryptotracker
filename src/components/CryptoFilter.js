@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
+import moment from 'moment';
 
 import { setStartDate, setEndDate } from '../actions/filters';
 
@@ -21,17 +22,22 @@ export class CryptoFilter extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <DateRangePicker 
-                    startDate={this.props.filters.startDate}
-                    endDate={this.props.filters.endDate}
-                    onDatesChange={this.onDatesChange}
-                    focusedInput={this.state.calendarFocused}
-                    onFocusChange={this.onFocusChange}
-                    numberOfMonths={1}
-                    minimumNights={0}
-                    isOutsideRange={() => false}
-                />
+            <div className="date-container">
+                <div className="container">
+                    <DateRangePicker 
+                        startDate={this.props.filters.startDate}
+                        endDate={this.props.filters.endDate}
+                        onDatesChange={this.onDatesChange}
+                        focusedInput={this.state.calendarFocused}
+                        onFocusChange={this.onFocusChange}
+                        numberOfMonths={1}
+                        minimumNights={0}
+                        isOutsideRange={(day) => {
+                            const today = moment();
+                            return day >= today;
+                        }}
+                    />
+                </div>
             </div>
         )
     }
