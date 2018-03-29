@@ -54,7 +54,6 @@ export const startSetCryptos = () => {
                     }
 
                 });
-
                 // Dispatching object to the Redux store.
                 dispatch(setCryptos(cryptos));
 

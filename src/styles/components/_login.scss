@@ -1,0 +1,35 @@
+.login {
+    background: url('/images/background.jpg') no-repeat center;
+    background-size: cover;
+    background-origin: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__image {
+        padding: $l-size $m-size;
+    }
+
+    &__box {
+        background: fade-out($dark-purple, 0.10);
+        border-radius: 3px;
+        text-align: center;
+        width: 25rem;
+        height: 40rem;
+        padding: $l-size $m-size;
+        color: white;
+        border-radius: 0.5em;
+    }
+
+    &__title {
+        margin: 0 0 $m-size 0;
+        line-height: 1;
+    }
+
+    &__subtitle {
+        margin-bottom: $xl-size;
+    }
+
+}

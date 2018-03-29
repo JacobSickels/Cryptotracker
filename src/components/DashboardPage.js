@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CryptoList from './CryptoList';
 import { setDefaultFilter } from '../actions/filters';
+import { startSetCryptos } from '../actions/cryptos';
 
 class DashboardPage extends React.Component {
 

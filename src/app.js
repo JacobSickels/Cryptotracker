@@ -37,31 +37,32 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
+
         store.dispatch(login(user.uid));
-        
+
         store.dispatch(startSetCryptos()).then(() => {
             
             //dispatching exchange rates for /exchange
             store.dispatch(startSetExchange());
 
-            renderApp();
             //If they are on the login page
             if(history.location.pathname === '/') {
                 history.push('/dashboard');
             }
-
+            
             //If you enter app from /exchange you load to dashboard
             if(history.location.pathname === '/exchange') {
-                history.push('/dashboard');
+               history.push('/dashboard');
             }
-
-        });
+            
+            renderApp();
+        });      
         
     }
     else {
         store.dispatch(logout());
-        renderApp();
         history.push('/');
+        renderApp();
     }
 });
 

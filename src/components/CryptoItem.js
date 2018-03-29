@@ -71,12 +71,13 @@ export class CryptoItem extends React.Component {
     };
 }
 
-
 const mapStateToProps = (state, props) => {
     
-    //Calculating slope and yIntercept for Trend Lines
+    //console.log('state.cryptos', state.cryptos);
+    //console.log('state.filters', state.filters);
     const crypto = selectCryptos(state.cryptos, state.filters)[props.name.toLowerCase()];
-    const x = [];
+
+    let x = [];
     
     for(let i = 0; i < crypto.length; i++) {
         x.push(i);
@@ -98,17 +99,18 @@ const mapStateToProps = (state, props) => {
     const yIntercept = averageY - (slope * averageX);
     const percentage = (crypto[crypto.length - 1].amount - crypto[0].amount) / crypto[0].amount * 100;
 
-    return {
-        data: crypto.map(
-            (entry, index) => {
-                const timestamp = moment(entry.timestamp).format('ha');
-                const amount = parseFloat(entry.amount);
-                const trend = slope * index + yIntercept;
-                return { timestamp, amount, trend }
-            }),
-        percentage
+    const data = crypto.map((entry, index) => ({
+                timestamp: moment(entry.timestamp).format('ha'), 
+                amount: parseFloat(entry.amount), 
+                trend: slope * index + yIntercept
+            }));
 
+    return {
+        data,
+        percentage
     };
+    
+
 };
 
 export default connect(mapStateToProps)(CryptoItem);

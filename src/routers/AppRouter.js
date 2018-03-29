@@ -13,7 +13,7 @@ import Documentation from '../components/Documentation';
 
 export const history = createHistory();
 
-const AppRouter = () => (
+const AppRouter = (props) => (
     <Router history={history}>
         <div>
             <Switch>
