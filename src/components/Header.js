@@ -18,6 +18,9 @@ export const Header = ({ startLogout }) => (
                         trigger={
                             <button data-beloworigin="true" className="button button--link">Account</button>
                         }>
+                        <Link to="/account">
+                            <button className="button--dropdown">Settings</button>
+                        </Link>
                         <button className="button--dropdown" onClick={startLogout}>Logout</button>
                     </Dropdown>
                 </div>

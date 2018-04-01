@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 
+import AccountPage from '../components/AccountPage';
 import DashboardPage from '../components/DashboardPage';
 import ExchangePage from '../components/ExchangePage';
 import NotFoundPage from '../components/NotFoundPage';
@@ -29,6 +30,10 @@ const AppRouter = (props) => (
                 <PrivateRoute 
                     path="/exchange"
                     component={ExchangePage}
+                />
+                <PrivateRoute 
+                    path="/account"
+                    component={AccountPage}
                 />
                 <PrivateRoute 
                     path="/filter/:currency"

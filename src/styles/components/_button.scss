@@ -9,10 +9,13 @@
     padding: $s-size;
     text-decoration: none;
 
-
+    &-container {
+        text-align: center;
+    }
     &--trend, &--trend:focus {
         background: $dark-purple;
-        margin: $s-size;
+        margin: $m-size;
+        margin-bottom: 0;
         border: none;
         color: white;
         display: inline-block;
@@ -21,12 +24,13 @@
         line-height: 1;
         padding: $s-size;
         text-decoration: none;
-    }
+    }   
 
     &--link {
         background: none;
         font-size: 1.75rem;
-        
+          
+
         &:hover {
             color: $orange;
         }
@@ -45,17 +49,28 @@
         width: 100%;
         border: none;
         padding: $s-size 0;
+        color: black;
+        width: 100%;
+        a {
+            display: block;
+        }
 
         &:hover, &:active {
             color: $orange;
             background-color: white;
         }
+      
     }
 
+    &--dropdown {
+        color: black;
+    }
 
     &:focus {
         background: none;
     }
+
+
 }
 
 //Overriding Materialize Styles

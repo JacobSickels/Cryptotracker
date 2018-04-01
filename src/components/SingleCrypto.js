@@ -5,6 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 import CryptoItem from './CryptoItem';
 import CryptoFilter from './CryptoFilter';
+import CryptoInfo from './CryptoInfo';
 
 class SingleCrypto extends React.Component {
 
@@ -17,6 +18,7 @@ class SingleCrypto extends React.Component {
             <div>
                 <CryptoFilter />
                 <CryptoItem name={this.props.name} />
+                <CryptoInfo name={this.props.name} />
             </div>
         );
     };

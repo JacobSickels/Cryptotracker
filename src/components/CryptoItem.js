@@ -27,15 +27,11 @@ export class CryptoItem extends React.Component {
                                     <h1> {this.props.name} </h1>
                                 </Link>
                             </div>
-                            <button className="button--trend"
-                                onClick={() => {
-                                    const show = this.state.showTrendLine;
-                                    this.setState({showTrendLine: !show})
-                                }}>
-                            {
-                                (this.state.showTrendLine) ? 'Hide Trend' : 'Show Trend'
-                            }      
-                            </button>
+                            <div className="chart-title__amount">
+                                <h1>
+                                    {this.props.currency_symbol} {this.props.current.amount}
+                                </h1>
+                            </div>
                             <div className="chart-title--percentage">
                                  <h1 style={{
                                      color:
@@ -48,6 +44,17 @@ export class CryptoItem extends React.Component {
                     </div>
                 </div>
                 <div className="container">
+                    <div className="button-container">
+                        <button className="button--trend"
+                            onClick={() => {
+                                const show = this.state.showTrendLine;
+                                this.setState({showTrendLine: !show})
+                            }}>
+                        {
+                            (this.state.showTrendLine) ? 'Hide Trend' : 'Show Trend'
+                        }      
+                        </button>
+                    </div>
                     <div className="chart-container">
                         <ResponsiveContainer height='100%' width='100%'>
                             <LineChart data={this.props.data} margin={{top: 5, right: 10, left: 30, bottom: 5}}>
@@ -71,12 +78,16 @@ export class CryptoItem extends React.Component {
     };
 }
 
-const mapStateToProps = (state, props) => {
-    
-    //console.log('state.cryptos', state.cryptos);
-    //console.log('state.filters', state.filters);
-    const crypto = selectCryptos(state.cryptos, state.filters)[props.name.toLowerCase()];
+const convertToExchange = (exchangeRate, cryptos) => {
+    const converted = cryptos.map((entry) => ({
+        amount: (parseFloat(entry.amount) * exchangeRate).toFixed(2),
+        timestamp: entry.timestamp
+    }));
 
+    return converted;
+}
+
+const getTrendData = (crypto) => {
     let x = [];
     
     for(let i = 0; i < crypto.length; i++) {
@@ -107,10 +118,25 @@ const mapStateToProps = (state, props) => {
 
     return {
         data,
-        percentage
+        percentage,
+        current: crypto[crypto.length - 1]
     };
-    
+};
 
+const mapStateToProps = (state, props) => {
+
+    let crypto = selectCryptos(state.cryptos, state.filters)[props.name.toLowerCase()];
+
+    const exchangeRate = parseFloat(state.filters.currency.exchange_rate);
+
+    //converting amounts to exchange rate
+    crypto = convertToExchange(exchangeRate, crypto);
+
+    return {
+        ...getTrendData(crypto),
+        currency_symbol: state.filters.currency.symbol
+    }
+    
 };
 
 export default connect(mapStateToProps)(CryptoItem);

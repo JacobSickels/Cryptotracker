@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import { startSetCryptos } from './actions/cryptos';
 import { startSetExchange } from './actions/exchange';
+import { startSetCurrency } from './actions/filters';
 import LoadingPage from './components/LoadingPage';
 import moment from 'moment';
 
@@ -40,22 +41,29 @@ firebase.auth().onAuthStateChanged((user) => {
 
         store.dispatch(login(user.uid));
 
+        //Gets crypto data for graphing
         store.dispatch(startSetCryptos()).then(() => {
             
-            //dispatching exchange rates for /exchange
-            store.dispatch(startSetExchange());
+            //Gets default currency from account
+            store.dispatch(startSetCurrency()).then(() => {
 
-            //If they are on the login page
-            if(history.location.pathname === '/') {
-                history.push('/dashboard');
-            }
-            
-            //If you enter app from /exchange you load to dashboard
-            if(history.location.pathname === '/exchange') {
-               history.push('/dashboard');
-            }
-            
-            renderApp();
+                //Gets exchange rates and puts them in redux state
+                store.dispatch(startSetExchange());
+    
+                //If they are on the login page
+                if(history.location.pathname === '/') {
+                    history.push('/dashboard');
+                }
+                
+                //If you enter app from /exchange you load to dashboard
+                if(history.location.pathname === '/exchange') {
+                   history.push('/dashboard');
+                }
+                
+                renderApp();
+
+            });
+
         });      
         
     }

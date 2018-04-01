@@ -3,7 +3,7 @@
     &-container {
         height: 500px;
         width: 100%;
-        margin: $l-size 0;
+        margin: $s-size 0;
     }
 
     &-title {
@@ -12,6 +12,10 @@
         &__link {
             text-decoration: none;
             color: $light-purple;
+        }
+
+        &__amount {
+            color: $purple;
         }
 
         &--container {

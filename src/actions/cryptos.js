@@ -1,13 +1,6 @@
 import database from '../firebase/firebase';
 import moment from 'moment';
 
-
-//setting timezone on account
-export const setTimeZone = (timezone) => ({
-    type: 'SET_TIMEZONE',
-    timezone
-});
-
 // SET_CRYPTOS
 export const setCryptos = (cryptos) => ({
     type: 'SET_CRYPTOS',

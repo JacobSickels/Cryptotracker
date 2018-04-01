@@ -5,7 +5,13 @@ import moment from 'moment';
 
 const filtersReducerDefaultState = {
     startDate: moment().startOf('day'),
-    endDate: moment().endOf('day')
+    endDate: moment().endOf('day'),
+    currency: {
+        id: "USD",
+        exchange_rate: 1,
+        name: 'United States Dollar',
+        symbol: '$'
+    }
 }
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -26,7 +32,13 @@ export default (state = filtersReducerDefaultState, action) => {
                 ...state,
                 startDate: action.defaultState.startDate,
                 endDate: action.defaultState.endDate
-            }    
+            }
+        case 'SET_CURRENCY': {
+            return {
+                ...state,
+                currency: action.currency
+            }
+        }         
         default: return state;
     }
 
