@@ -23,15 +23,19 @@ export class AccountPage extends React.Component {
 
     render() {
         return (
-            <div className="container">
-                <h1>My Account Page</h1>
-                <Input s={5} type='select' label="Select Currency" value={this.state.currency.id} onChange={this.onInputChange}>
-                    {
-                        this.props.exchanges.map((currency) =>
-                            <option key={currency.id} value={currency.id}>{currency.name}</option>
-                        )
-                    }
-                </Input>
+            <div className="page-container">
+                <div className="container">
+                    <h2>My Account Page</h2>
+
+                    <h1>Set Base Currency</h1>
+                    <Input s={5} type='select' label="Select Currency" value={this.state.currency.id} onChange={this.onInputChange}>
+                        {
+                            this.props.exchanges.map((currency) =>
+                                <option key={currency.id} value={currency.id}>{currency.name}</option>
+                            )
+                        }
+                    </Input>
+                </div>
             </div>
         );
     }

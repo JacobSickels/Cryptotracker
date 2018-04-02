@@ -20,7 +20,9 @@ class DashboardPage extends React.Component {
     render() {
         return (
             <div>
-                <CryptoList />
+                <div className="page-container">
+                    <CryptoList />
+                </div>
             </div>
         );
     }

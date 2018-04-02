@@ -72,7 +72,7 @@ export class ExchangePage extends React.Component {
         }
 
         return (
-            <div>
+            <div className="page-container">
                 <div className="exchange-display">
                     <div className="container"> 
                         <h1> {this.state.amount} {this.state.from_element.name}</h1>
