@@ -60,9 +60,19 @@ export class CryptoInfo extends React.Component {
 
 }
 
+const convertToExchange = (exchangeRate, cryptos) => {
+    const converted = cryptos.map((entry) => ({
+        amount: (parseFloat(entry.amount) * exchangeRate).toFixed(2),
+        timestamp: entry.timestamp
+    }));
+
+    return converted;
+}
+
 const getMaxMinData = (cryptos, filters, name) => {
-    const crypto = selectCryptos(cryptos, filters)[name];
-    console.log('new data');
+    let crypto = selectCryptos(cryptos, filters)[name];
+
+    crypto = convertToExchange(filters.currency.exchange_rate, crypto);
 
     let maxDifference = 0;
     let minElement = {};

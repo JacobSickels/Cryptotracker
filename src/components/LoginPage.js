@@ -6,7 +6,7 @@ export const LoginPage = ({ startLogin }) => (
     <div className="login">
         <div className="login__box">
             <div className="login__image">
-                <img src="/images/loader.gif" />
+                <img src="/images/Crypto_Logo.svg" />
             </div>
             <h1 className="login__title">CryptoTracker</h1>
             <p className="login__subtitle">Tracking cryptos, one hour at a time.</p>

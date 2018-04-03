@@ -21,7 +21,7 @@ export const Header = ({ startLogout }) => (
                         <Link to="/account">
                             <button className="button--dropdown">Settings</button>
                         </Link>
-                        <button className="button--dropdown" onClick={startLogout}>Logout</button>
+                        <button id="logout" className="button--dropdown" onClick={startLogout}>Logout</button>
                     </Dropdown>
                 </div>
             </div>

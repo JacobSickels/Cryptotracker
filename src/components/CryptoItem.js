@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; //Eventually linking to the specific cryptos page for more specific filtering
 import moment from 'moment';
-import momentTimezone from 'moment-timezone';
 import { connect } from 'react-redux';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import selectCryptos from '../selectors/cryptos';
@@ -18,7 +17,7 @@ export class CryptoItem extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="chart">
                 <div className="chart-title">
                     <div className="container">
                         <div className="chart-title--container">

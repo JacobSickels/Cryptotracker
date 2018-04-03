@@ -1,4 +1,4 @@
-import cryptosReducer from '../../reducers/crypto';
+import cryptosReducer from '../../reducers/cryptos';
 import cryptos from '../fixtures/cryptos';
 
 test('should set default state for cryptos object', () => {

@@ -9,7 +9,8 @@
     align-items: center;
 
     &__image {
-        padding: $l-size $m-size;
+        padding: 0 $m-size;
+        padding-bottom: $m-size;
     }
 
     &__box {
@@ -29,7 +30,7 @@
     }
 
     &__subtitle {
-        margin-bottom: $xl-size;
+        margin-bottom: $l-size;
     }
 
 }

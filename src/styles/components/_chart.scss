@@ -4,6 +4,10 @@
         height: 500px;
         width: 100%;
         margin: $s-size 0;
+
+        @media (max-width: $desktop-breakpoint) {
+            height: 250px;
+        }   
     }
 
     &-title {
@@ -26,6 +30,11 @@
             button {
                 height: 50%;
             }
+
+            @media (max-width: $desktop-breakpoint) {
+                text-align: center;
+                flex-direction: column;
+            }  
         }
 
         h1 {

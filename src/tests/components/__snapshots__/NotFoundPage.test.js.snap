@@ -2,12 +2,27 @@
 
 exports[`should render NotFoundPage correctly 1`] = `
 <div>
-  404 - 
-  <Link
-    replace={false}
-    to="/"
+  <Connect(Header) />
+  <div
+    className="page-container"
   >
-    Go Home
-  </Link>
+    <div
+      className="container"
+    >
+      <h1>
+        We're Sorry! This page doesn't exist 
+      </h1>
+      <p>
+        Error Code: 404 - 
+        <Link
+          replace={false}
+          to="/"
+        >
+          Go Home
+        </Link>
+      </p>
+    </div>
+  </div>
+  <Footer />
 </div>
 `;

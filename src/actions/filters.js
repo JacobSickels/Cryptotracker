@@ -34,7 +34,7 @@ export const startEditCurrency = (newCurrency) => {
         return database.ref(`users/${uid}/currency`)
             .update(newCurrency)
             .then(() => {
-                console.log('currency', newCurrency);
+                //console.log('currency', newCurrency);
                 dispatch(setCurrency(newCurrency));
             });
     }
@@ -60,7 +60,7 @@ export const startSetCurrency = () => {
                     }
                 }
 
-                console.log('currency', currency);
+                //console.log('currency', currency);
                 dispatch(setCurrency(currency));
             });
     }

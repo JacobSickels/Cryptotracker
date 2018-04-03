@@ -5,7 +5,7 @@ exports[`should render Header correctly 1`] = `
   className="header"
 >
   <div
-    className="content-container"
+    className="container"
   >
     <div
       className="header__content"
@@ -16,15 +16,53 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          Boilerplate
+          CryptoTracker
         </h1>
       </Link>
-      <button
-        className="button button--link"
-        onClick={[Function]}
-      >
-        Logout
-      </button>
+      <div>
+        <Link
+          className="button button--link"
+          replace={false}
+          to="/dashboard"
+        >
+          Dashboard
+        </Link>
+        <Link
+          className="button button--link"
+          replace={false}
+          to="/exchange"
+        >
+          Exchange
+        </Link>
+        <Dropdown
+          trigger={
+            <button
+              className="button button--link"
+              data-beloworigin="true"
+            >
+              Account
+            </button>
+          }
+        >
+          <Link
+            replace={false}
+            to="/account"
+          >
+            <button
+              className="button--dropdown"
+            >
+              Settings
+            </button>
+          </Link>
+          <button
+            className="button--dropdown"
+            id="logout"
+            onClick={[Function]}
+          >
+            Logout
+          </button>
+        </Dropdown>
+      </div>
     </div>
   </div>
 </header>
