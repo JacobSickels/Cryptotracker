@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render account page correctly 1`] = `
+<div
+  className="page-container"
+>
+  <div
+    className="container"
+  >
+    <h2>
+      My Account Page
+    </h2>
+    <h1>
+      Set Base Currency
+    </h1>
+    <Input
+      checked={false}
+      label="Select Currency"
+      onChange={[Function]}
+      s={5}
+      type="select"
+      value="AED"
+    >
+      <option
+        key="AED"
+        value="AED"
+      >
+        United Arab Emirates Dirham
+      </option>
+      <option
+        key="AFN"
+        value="AFN"
+      >
+        Afghan Afghani
+      </option>
+      <option
+        key="ALL"
+        value="ALL"
+      >
+        Albanian Lek
+      </option>
+      <option
+        key="AMD"
+        value="AMD"
+      >
+        Armenian Dram
+      </option>
+      <option
+        key="ANG"
+        value="ANG"
+      >
+        Netherlands Antillean Gulden
+      </option>
+      <option
+        key="AOA"
+        value="AOA"
+      >
+        Angolan Kwanza
+      </option>
+      <option
+        key="ARS"
+        value="ARS"
+      >
+        Argentine Peso
+      </option>
+    </Input>
+  </div>
+</div>
+`;

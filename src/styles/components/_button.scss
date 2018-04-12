@@ -12,7 +12,7 @@
     &-container {
         text-align: center;
     }
-    &--trend, &--trend:focus {
+    &--trend, &--trend:focus, &--clear {
         background: $dark-purple;
         margin: $m-size;
         margin-bottom: 0;
@@ -24,6 +24,10 @@
         line-height: 1;
         padding: $s-size;
         text-decoration: none;
+    }
+    &--clear {
+        margin: $s-size;
+        padding: $m-size;
     }   
 
     &--link {
@@ -45,7 +49,7 @@
     &--dropdown, &--dropdown:active {
         background-color: white;
         padding: 0;
-        font-size: 1rem;
+        font-size: 1.3rem;
         width: 100%;
         border: none;
         padding: $s-size 0;

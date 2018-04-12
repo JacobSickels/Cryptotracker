@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Row, Input, Col, Icon } from 'react-materialize';
 import { startSetExchange } from '../actions/exchange';
-
+import sortExchanges from '../selectors/exchanges';
 import LoadingPage from './LoadingPage';
 
 /*
@@ -38,13 +38,11 @@ export class ExchangePage extends React.Component {
 
     onToInputChange = (e) => {
         const target = this.props.exchanges.find((element) => element.id === e.target.value);
-        console.log(e.target.value);
         this.setState({to_element: target});
     }
 
     onFromInputChange = (e) => {
         const target = this.props.exchanges.find((element) => element.id === e.target.value);
-        console.log(e.target.value);
         this.setState({from_element: target});
     }
 
@@ -58,16 +56,11 @@ export class ExchangePage extends React.Component {
     
     componentDidMount() {
         this.setState({componentMounted: true});
-        console.log('mounted');
-        console.log(this.props);
     }
     
     render() {
         
         if(!this.state.componentMounted || this.state.from_element === null || this.state.conversion(this.state.amount) === 0) {
-            console.log('mounted', this.state.componentMounted);
-            console.log('from', this.state.from_element);
-            console.log('');
             return <LoadingPage />
         }
 
@@ -84,7 +77,7 @@ export class ExchangePage extends React.Component {
                         <Input s={5} label="Input Amount" defaultValue='1' onChange={this.onAmountChange} />
                     </Row>
                     <Row className="selector">
-                        <Input s={5} type='select' label="Select Currency" value={this.state.from_element.id} onChange={this.onFromInputChange}>
+                        <Input s={5} type='select' value={this.state.from_element.id} onChange={this.onFromInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>
@@ -94,7 +87,7 @@ export class ExchangePage extends React.Component {
                         <Col s={2} className="arrow">
                             <Icon medium>arrow_forward</Icon>
                         </Col>
-                        <Input s={5} type='select' label="Select Currency" value={this.state.to_element.id} onChange={this.onToInputChange}>
+                        <Input s={5} type='select' value={this.state.to_element.id} onChange={this.onToInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>
@@ -116,9 +109,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state, props) => {
-    console.log('mapping state');
+    
+    const sortedExchange = sortExchanges(state.exchange);
     return {
-        exchanges: state.exchange,
+        exchanges: sortedExchange,
         from_element: state.exchange.find((element) => element.id == 'BTC'),
         to_element: state.exchange.find((element) => element.id == 'USD')
     };

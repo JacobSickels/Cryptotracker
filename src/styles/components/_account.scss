@@ -1,0 +1,30 @@
+.toast {
+    background-color: $purple;
+}
+
+#toast-container {
+    top: auto !important;
+    right: 10%;
+    bottom: 10%;
+    left: auto !important;  
+  }
+
+.account {
+    &__title {
+        background-color: $light-grey;
+        h1 {
+            font-size: $l-size;
+            margin: 0;
+            padding: $l-size;
+            padding-left: 0;
+        }
+    }
+    &__option {
+        h2 {
+            font-size: $xm-size;
+        }
+        .input-field {
+            font-size: $m-size !important;
+        }
+    }
+}

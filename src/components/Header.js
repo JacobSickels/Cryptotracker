@@ -16,6 +16,20 @@ export const Header = ({ startLogout }) => (
                     <Link className="button button--link" to="/exchange">Exchange</Link>
                     <Dropdown
                         trigger={
+                            <button data-beloworigin="true" className="button button--link">Filter</button>
+                        }>
+                        <Link to="/filter/bitcoin">
+                            <button className="button--dropdown">Bitcoin</button>
+                        </Link>
+                        <Link to="/filter/litecoin">
+                            <button className="button--dropdown">Litecoin</button>
+                        </Link>
+                        <Link to="/filter/ethereum">
+                            <button className="button--dropdown">Ethereum</button>
+                        </Link>
+                    </Dropdown>
+                    <Dropdown
+                        trigger={
                             <button data-beloworigin="true" className="button button--link">Account</button>
                         }>
                         <Link to="/account">

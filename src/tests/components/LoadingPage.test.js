@@ -9,6 +9,6 @@ import LoadingPage from '../../components/LoadingPage';
 test('should render LoadingPage correctly', () => {
     const createMockStore = configureMockStore([thunk]);
     const store = createMockStore();
-    const wrapper = shallow(<Provider store={store}><LoadingPage /></Provider> );
+    const wrapper = shallow(<LoadingPage store={store}/>);
     expect(wrapper).toMatchSnapshot();
 });

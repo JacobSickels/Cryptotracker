@@ -30,10 +30,6 @@ export class CryptoInfo extends React.Component {
         }
     }
 
-    componentWillMount() {
-        console.log('testing');
-    }
-
     render() {
         return (
             <div className="chart-info">
@@ -52,7 +48,8 @@ export class CryptoInfo extends React.Component {
                             <h1>Time To Sell</h1>
                             <em>{moment(this.props.maxElement.timestamp).format('ha MMM Do YYYY')}</em>
                             <p>{this.props.maxElement.amount}</p>
-                        </Col>                </Row>
+                        </Col>
+                    </Row>
                 </div>
             </div>
         );

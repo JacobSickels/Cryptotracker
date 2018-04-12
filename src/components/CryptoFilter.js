@@ -12,8 +12,14 @@ export class CryptoFilter extends React.Component {
     };
 
     onDatesChange = ({ startDate, endDate }) => {
-        this.props.setStartDate(startDate);
-        this.props.setEndDate(endDate);
+        if(startDate === null && endDate === null) {
+            this.props.setStartDate(moment().startOf('day'));
+            this.props.setEndDate(moment().endOf('day'));
+        }
+        else {
+            this.props.setStartDate(startDate);
+            this.props.setEndDate(endDate);
+        }
     }
 
     onFocusChange = (calendarFocused) => {
@@ -32,9 +38,10 @@ export class CryptoFilter extends React.Component {
                         onFocusChange={this.onFocusChange}
                         numberOfMonths={1}
                         minimumNights={0}
+                        showClearDates={true}
                         isOutsideRange={(day) => {
                             const today = moment();
-                            return day >= today;
+                            return day.isSameOrAfter(today) || day.isBefore("2018-03-01");
                         }}
                     />
                 </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Input } from 'react-materialize';
 
 import { startEditCurrency } from '../actions/filters';
+import sortExchanges from '../selectors/exchanges';
 
 export class AccountPage extends React.Component {
 
@@ -16,7 +17,12 @@ export class AccountPage extends React.Component {
     }
 
     onInputChange = (e) => {
-        const currency = this.props.exchanges.find((element) => element.id === e.target.value);
+        const currency = this.props.exchanges.find((element) => {
+            if(element.id === e.target.value){
+                return element;
+            }
+        });
+        window.Materialize.toast('Updated Base Currency', 3000);
         this.setState({ currency });
         this.props.startEditCurrency(currency);
     }
@@ -24,17 +30,24 @@ export class AccountPage extends React.Component {
     render() {
         return (
             <div className="page-container">
+                <div className="account__title">
+                    <div className="container">
+                        <div className="account__title">
+                            <h1>My Account Page</h1>
+                        </div>
+                    </div>
+                </div>
                 <div className="container">
-                    <h2>My Account Page</h2>
-
-                    <h1>Set Base Currency</h1>
-                    <Input s={5} type='select' label="Select Currency" value={this.state.currency.id} onChange={this.onInputChange}>
-                        {
-                            this.props.exchanges.map((currency) =>
-                                <option key={currency.id} value={currency.id}>{currency.name}</option>
-                            )
-                        }
-                    </Input>
+                    <div className="account__option">
+                        <h2>Set Base Currency</h2>
+                        <Input s={5} type='select' value={this.state.currency.id} onChange={this.onInputChange}>
+                            {
+                                this.props.exchanges.map((currency) =>
+                                    <option key={currency.id} value={currency.id}>{currency.name}</option>
+                                )
+                            }
+                        </Input>
+                    </div>
                 </div>
             </div>
         );
@@ -49,8 +62,10 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state, props) => {
+
+    const sortedExchange = sortExchanges(state.exchange);
     return {
-        exchanges: state.exchange,
+        exchanges: sortedExchange,
         currency: state.filters.currency
     };
 };

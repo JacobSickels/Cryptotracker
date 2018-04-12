@@ -70,7 +70,7 @@ test('should setup currency filter object', () => {
     });
 });
 
-test('should get currency object from user section of database', () => {
+test('should get currency object from user section of database', (done) => {
     const currency = {
         "exchange_rate": "3.67",
         "id": "AED",
@@ -89,7 +89,7 @@ test('should get currency object from user section of database', () => {
     });
 });
 
-test('should set currency object on user in firebase', () => {
+test('should set currency object on user in firebase', (done) => {
     const currency = {
         "exchange_rate": "106.31",
         "id": "ALL",
