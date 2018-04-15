@@ -5,13 +5,6 @@ import { startSetExchange } from '../actions/exchange';
 import sortExchanges from '../selectors/exchanges';
 import LoadingPage from './LoadingPage';
 
-/*
-
-need to load from and to elements into default state.
-
-
-*/
-
 export class ExchangePage extends React.Component {
     constructor(props) {
         super(props);
@@ -74,10 +67,10 @@ export class ExchangePage extends React.Component {
                 </div>
                 <div className="container exchange">
                     <Row className="selector">
-                        <Input s={5} label="Input Amount" defaultValue='1' onChange={this.onAmountChange} />
+                        <Input id="amount-input" s={5} label="Input Amount" defaultValue='1' onChange={this.onAmountChange} />
                     </Row>
                     <Row className="selector">
-                        <Input s={5} type='select' value={this.state.from_element.id} onChange={this.onFromInputChange}>
+                        <Input s={5} id="from-input" type='select' value={this.state.from_element.id} onChange={this.onFromInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>
@@ -87,7 +80,7 @@ export class ExchangePage extends React.Component {
                         <Col s={2} className="arrow">
                             <Icon medium>arrow_forward</Icon>
                         </Col>
-                        <Input s={5} type='select' value={this.state.to_element.id} onChange={this.onToInputChange}>
+                        <Input s={5} id="to-input" type='select' value={this.state.to_element.id} onChange={this.onToInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>

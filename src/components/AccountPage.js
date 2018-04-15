@@ -22,7 +22,6 @@ export class AccountPage extends React.Component {
                 return element;
             }
         });
-        window.Materialize.toast('Updated Base Currency', 3000);
         this.setState({ currency });
         this.props.startEditCurrency(currency);
     }

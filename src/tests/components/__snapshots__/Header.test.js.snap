@@ -16,7 +16,7 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          CryptoTracker
+          Cryptotracker
         </h1>
       </Link>
       <div>
@@ -34,6 +34,47 @@ exports[`should render Header correctly 1`] = `
         >
           Exchange
         </Link>
+        <Dropdown
+          trigger={
+            <button
+              className="button button--link"
+              data-beloworigin="true"
+            >
+              Filter
+            </button>
+          }
+        >
+          <Link
+            replace={false}
+            to="/filter/bitcoin"
+          >
+            <button
+              className="button--dropdown"
+            >
+              Bitcoin
+            </button>
+          </Link>
+          <Link
+            replace={false}
+            to="/filter/litecoin"
+          >
+            <button
+              className="button--dropdown"
+            >
+              Litecoin
+            </button>
+          </Link>
+          <Link
+            replace={false}
+            to="/filter/ethereum"
+          >
+            <button
+              className="button--dropdown"
+            >
+              Ethereum
+            </button>
+          </Link>
+        </Dropdown>
         <Dropdown
           trigger={
             <button

@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render exchange page correctly 1`] = `
+<div
+  className="page-container"
+>
+  <div
+    className="exchange-display"
+  >
+    <div
+      className="container"
+    >
+      <h1>
+         
+        1
+         
+        Afghan Afghani
+      </h1>
+      <h1>
+         
+        0.29
+         
+        Argentine Peso
+      </h1>
+    </div>
+  </div>
+  <div
+    className="container exchange"
+  >
+    <Row
+      className="selector"
+    >
+      <Input
+        checked={false}
+        defaultValue="1"
+        id="amount-input"
+        label="Input Amount"
+        onChange={[Function]}
+        s={5}
+        type="text"
+      />
+    </Row>
+    <Row
+      className="selector"
+    >
+      <Input
+        checked={false}
+        id="from-input"
+        onChange={[Function]}
+        s={5}
+        type="select"
+        value="AFN"
+      >
+        <option
+          key="AED"
+          value="AED"
+        >
+          United Arab Emirates Dirham
+        </option>
+        <option
+          key="AFN"
+          value="AFN"
+        >
+          Afghan Afghani
+        </option>
+        <option
+          key="ALL"
+          value="ALL"
+        >
+          Albanian Lek
+        </option>
+        <option
+          key="AMD"
+          value="AMD"
+        >
+          Armenian Dram
+        </option>
+        <option
+          key="ANG"
+          value="ANG"
+        >
+          Netherlands Antillean Gulden
+        </option>
+        <option
+          key="AOA"
+          value="AOA"
+        >
+          Angolan Kwanza
+        </option>
+        <option
+          key="ARS"
+          value="ARS"
+        >
+          Argentine Peso
+        </option>
+      </Input>
+      <Col
+        className="arrow"
+        s={2}
+      >
+        <Icon
+          medium={true}
+        >
+          arrow_forward
+        </Icon>
+      </Col>
+      <Input
+        checked={false}
+        id="to-input"
+        onChange={[Function]}
+        s={5}
+        type="select"
+        value="ARS"
+      >
+        <option
+          key="AED"
+          value="AED"
+        >
+          United Arab Emirates Dirham
+        </option>
+        <option
+          key="AFN"
+          value="AFN"
+        >
+          Afghan Afghani
+        </option>
+        <option
+          key="ALL"
+          value="ALL"
+        >
+          Albanian Lek
+        </option>
+        <option
+          key="AMD"
+          value="AMD"
+        >
+          Armenian Dram
+        </option>
+        <option
+          key="ANG"
+          value="ANG"
+        >
+          Netherlands Antillean Gulden
+        </option>
+        <option
+          key="AOA"
+          value="AOA"
+        >
+          Angolan Kwanza
+        </option>
+        <option
+          key="ARS"
+          value="ARS"
+        >
+          Argentine Peso
+        </option>
+      </Input>
+    </Row>
+  </div>
+</div>
+`;

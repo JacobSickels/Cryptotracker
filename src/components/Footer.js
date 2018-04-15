@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Footer = () => (
+export const Footer = () => (
     <div className="footer">
         <div className="container">
             <p>If you are interested in how this project was made, check out the 

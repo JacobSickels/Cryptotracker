@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render footer correctly 1`] = `
+<div
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <p>
+      If you are interested in how this project was made, check out the
+      <Link
+        replace={false}
+        to="/docs"
+      >
+        Documentation
+      </Link>
+    </p>
+  </div>
+  <div
+    className="footer-end"
+  >
+    <div
+      className="container"
+    >
+      <p>
+        This project was created by 
+        <a
+          href="http://www.jacobsickels.com"
+        >
+          Jacob Sickels
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

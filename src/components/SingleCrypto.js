@@ -7,7 +7,7 @@ import CryptoItem from './CryptoItem';
 import CryptoFilter from './CryptoFilter';
 import CryptoInfo from './CryptoInfo';
 
-class SingleCrypto extends React.Component {
+export class SingleCrypto extends React.Component {
 
     constructor(props) {
         super(props);

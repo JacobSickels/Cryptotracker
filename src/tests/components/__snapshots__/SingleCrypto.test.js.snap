@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render single crypto page correctly 1`] = `
+<div>
+  <Connect(CryptoFilter) />
+  <Connect(CryptoItem)
+    name="bitcoin"
+  />
+  <Connect(CryptoInfo)
+    name="bitcoin"
+  />
+</div>
+`;
