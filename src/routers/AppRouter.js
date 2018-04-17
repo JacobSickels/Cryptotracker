@@ -14,7 +14,7 @@ import Documentation from '../components/Documentation';
 
 export const history = createHistory();
 
-const AppRouter = (props) => (
+export const AppRouter = (props) => (
     <Router history={history}>
         <div>
             <Switch>

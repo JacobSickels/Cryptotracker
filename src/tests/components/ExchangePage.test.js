@@ -43,28 +43,28 @@ test('should render exchange page correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle toInputChange', () => {
-    const value = toExchange.id;
-    wrapper.find('#to-input').at(0).simulate('change', {
-        target: { value }
-    });
-    expect(wrapper.state('to_element')).toEqual(toExchange);
-});
-
-test('should handle fromInputChange', () => {
-    const value = toExchange.id;
-    wrapper.find('#from-input').at(0).simulate('change', {
-        target: { value }
-    });
-    expect(wrapper.state('from_element')).toEqual(toExchange);
-});
-
-test('should handle onAmountChange', () => {
+test('Use Case #4.1: Should handle amount change', () => {
     const value = "12345.64";
     wrapper.find('#amount-input').at(0).simulate('change', {
         target: { value }
     });
     expect(wrapper.state('amount')).toEqual(value);
+});
+
+test('Use Case $4.2: Should handle base currency change', () => {
+    const value = toExchange.id;
+    wrapper.find('#base-currency').at(0).simulate('change', {
+        target: { value }
+    });
+    expect(wrapper.state('from_element')).toEqual(toExchange);
+});
+
+test('Use Case #4.3: Should handle conversion currency change', () => {
+    const value = toExchange.id;
+    wrapper.find('#conversion-currency').at(0).simulate('change', {
+        target: { value }
+    });
+    expect(wrapper.state('to_element')).toEqual(toExchange);
 });
 
 test('should handle onAmountChange when amount is NaN', () => {

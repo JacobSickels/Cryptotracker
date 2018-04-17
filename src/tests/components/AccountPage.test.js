@@ -25,7 +25,7 @@ test('should render account page correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle onInputChange', () => {
+test('Use Case #6.1: Should handle changeBaseCurrency', () => {
     
     const currency = {
         "exchange_rate": "106.31",

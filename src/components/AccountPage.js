@@ -16,7 +16,7 @@ export class AccountPage extends React.Component {
 
     }
 
-    onInputChange = (e) => {
+    changeBaseCurrency = (e) => {
         const currency = this.props.exchanges.find((element) => {
             if(element.id === e.target.value){
                 return element;
@@ -39,7 +39,7 @@ export class AccountPage extends React.Component {
                 <div className="container">
                     <div className="account__option">
                         <h2>Set Base Currency</h2>
-                        <Input s={5} type='select' value={this.state.currency.id} onChange={this.onInputChange}>
+                        <Input s={5} type='select' value={this.state.currency.id} onChange={this.changeBaseCurrency}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>

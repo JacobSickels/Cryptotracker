@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { Row, Col } from 'react-materialize';
 
-import selectCryptos from '../selectors/cryptos';
+import { selectCryptos, getMaxMinData } from '../selectors/cryptos';
 
 export class CryptoInfo extends React.Component {
 
@@ -57,45 +57,9 @@ export class CryptoInfo extends React.Component {
 
 }
 
-const convertToExchange = (exchangeRate, cryptos) => {
-    const converted = cryptos.map((entry) => ({
-        amount: (parseFloat(entry.amount) * exchangeRate).toFixed(2),
-        timestamp: entry.timestamp
-    }));
-
-    return converted;
-}
-
-const getMaxMinData = (cryptos, filters, name) => {
-    let crypto = selectCryptos(cryptos, filters)[name];
-
-    crypto = convertToExchange(filters.currency.exchange_rate, crypto);
-
-    let maxDifference = 0;
-    let minElement = {};
-    let maxElement = {};
-
-    for(var i = 0; i < crypto.length; i++) {
-        for(var j = i + 1; j < crypto.length; j++) {
-            let check = crypto[j].amount - crypto[i].amount;
-            if(check > maxDifference) {
-                    maxDifference = crypto[j].amount - crypto[i].amount;
-                    minElement = crypto[i];
-                    maxElement = crypto[j];
-            }
-        }
-    }
-
-    return { maxDifference: maxDifference.toFixed(2), minElement, maxElement }
-
-}
-
 const mapStateToProps = (state, props) => {
-    
     const data = getMaxMinData(state.cryptos, state.filters, props.name.toLowerCase());
-    
     return { ...data }
-
 };
 
 export default connect(mapStateToProps)(CryptoInfo);

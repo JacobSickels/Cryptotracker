@@ -12,7 +12,8 @@ export class CryptoFilter extends React.Component {
     };
 
     onDatesChange = ({ startDate, endDate }) => {
-        if(startDate === null && endDate === null) {
+        
+        if(!startDate && !endDate) {
             this.props.setStartDate(moment().startOf('day'));
             this.props.setEndDate(moment().endOf('day'));
         }
@@ -41,7 +42,7 @@ export class CryptoFilter extends React.Component {
                         showClearDates={true}
                         isOutsideRange={(day) => {
                             const today = moment();
-                            return day.isSameOrAfter(today) || day.isBefore("2018-03-01");
+                            return day.isAfter(today) || day.isBefore("2018-03-01");
                         }}
                     />
                 </div>

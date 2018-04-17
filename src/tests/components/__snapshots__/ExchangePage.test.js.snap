@@ -45,7 +45,7 @@ exports[`should render exchange page correctly 1`] = `
     >
       <Input
         checked={false}
-        id="from-input"
+        id="base-currency"
         onChange={[Function]}
         s={5}
         type="select"
@@ -106,7 +106,7 @@ exports[`should render exchange page correctly 1`] = `
       </Col>
       <Input
         checked={false}
-        id="to-input"
+        id="conversion-currency"
         onChange={[Function]}
         s={5}
         type="select"

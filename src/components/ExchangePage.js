@@ -70,7 +70,7 @@ export class ExchangePage extends React.Component {
                         <Input id="amount-input" s={5} label="Input Amount" defaultValue='1' onChange={this.onAmountChange} />
                     </Row>
                     <Row className="selector">
-                        <Input s={5} id="from-input" type='select' value={this.state.from_element.id} onChange={this.onFromInputChange}>
+                        <Input s={5} id="base-currency" type='select' value={this.state.from_element.id} onChange={this.onFromInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>
@@ -80,7 +80,7 @@ export class ExchangePage extends React.Component {
                         <Col s={2} className="arrow">
                             <Icon medium>arrow_forward</Icon>
                         </Col>
-                        <Input s={5} id="to-input" type='select' value={this.state.to_element.id} onChange={this.onToInputChange}>
+                        <Input s={5} id="conversion-currency" type='select' value={this.state.to_element.id} onChange={this.onToInputChange}>
                             {
                                 this.props.exchanges.map((currency) =>
                                     <option key={currency.id} value={currency.id}>{currency.name}</option>

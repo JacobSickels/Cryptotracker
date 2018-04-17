@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 
 import { LoginPage } from '../../components/LoginPage';
 
-test('should render LoginPage correctly', () => {
+test('Should render LoginPage correctly', () => {
     const wrapper = shallow(<LoginPage startLogin={() => {}} />);
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should call startLogin on button click', () => {
+test('Use Case #2.0: Should call startLogin on button click', () => {
     const startLogin = jest.fn();
     const wrapper = shallow(<LoginPage startLogin={startLogin} />);
     wrapper.find('button').simulate('click');

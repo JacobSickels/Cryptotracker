@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 
 import LoadingPage from '../../components/LoadingPage';

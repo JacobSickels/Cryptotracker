@@ -9,3 +9,13 @@ export default (exchanges) => {
 
     return filteredExchanges;
 };
+
+
+export const convertToExchange = (exchangeRate, cryptos) => {
+    const converted = cryptos.map((entry) => ({
+        amount: (parseFloat(entry.amount) * exchangeRate).toFixed(2),
+        timestamp: entry.timestamp
+    }));
+
+    return converted;
+}
