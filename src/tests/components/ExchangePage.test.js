@@ -51,7 +51,7 @@ test('Use Case #4.1: Should handle amount change', () => {
     expect(wrapper.state('amount')).toEqual(value);
 });
 
-test('Use Case $4.2: Should handle base currency change', () => {
+test('Use Case #4.2: Should handle base currency change', () => {
     const value = toExchange.id;
     wrapper.find('#base-currency').at(0).simulate('change', {
         target: { value }
