@@ -15,7 +15,7 @@ beforeEach((done) => {
 });
 
 
-test('should setup set cryptos action object with data', () => {
+test('Should setup set cryptos action object with data', () => {
     const action = setCryptos(cryptos);
     expect(action).toEqual({
         type: 'SET_CRYPTOS',
@@ -24,7 +24,7 @@ test('should setup set cryptos action object with data', () => {
 });
 
 
-test('should fetch crypto data from firebase', (done) => {
+test('Should fetch crypto data from firebase', (done) => {
     const store = createMockStore(defaultAuthState);
     store.dispatch(startSetCryptos()).then(() => {
         const actions = store.getActions();

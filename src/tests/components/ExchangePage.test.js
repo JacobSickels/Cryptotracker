@@ -39,7 +39,7 @@ beforeEach(() => {
         />);
 });
 
-test('should render exchange page correctly', () => {
+test('Should render exchange page correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
@@ -67,7 +67,7 @@ test('Use Case #4.3: Should handle conversion currency change', () => {
     expect(wrapper.state('to_element')).toEqual(toExchange);
 });
 
-test('should handle onAmountChange when amount is NaN', () => {
+test('Should handle onAmountChange when amount is NaN', () => {
     const value = "abc123";
     wrapper.find('#amount-input').at(0).simulate('change', {
         target: { value }

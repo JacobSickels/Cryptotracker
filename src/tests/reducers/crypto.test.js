@@ -1,7 +1,7 @@
 import cryptosReducer from '../../reducers/cryptos';
 import cryptos from '../fixtures/cryptos';
 
-test('should set default state for cryptos object', () => {
+test('Should set default state for cryptos object', () => {
     const state = cryptosReducer(undefined, { type: '@@INIT' });
     expect(state).toEqual({
         bitcoin: [],
@@ -10,7 +10,7 @@ test('should set default state for cryptos object', () => {
     });
 });
 
-test('should set cryptos object', () => {
+test('Should set cryptos object', () => {
     const action = {
         type: 'SET_CRYPTOS',
         cryptos

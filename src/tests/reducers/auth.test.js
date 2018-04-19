@@ -1,6 +1,6 @@
 import authReducer from '../../reducers/auth';
 
-test('should set uid for login', () => {
+test('Should set uid for login', () => {
     const action = {
         type: 'LOGIN',
         uid: 'abc123'
@@ -9,7 +9,7 @@ test('should set uid for login', () => {
     expect(state.uid).toBe(action.uid);
 });
 
-test('should clear uid for logout', () => {
+test('Should clear uid for logout', () => {
     const action = {
         type: 'LOGOUT'
     };

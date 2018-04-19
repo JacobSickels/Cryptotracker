@@ -28,7 +28,7 @@ beforeEach(() => {
 });
 
 
-test('should render Crypto Filter correctly', () => {
+test('Should render Crypto Filter correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 

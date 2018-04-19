@@ -18,7 +18,7 @@ beforeEach(() => {
     store = createMockStore();
 });
 
-test('should render account page correctly', () => {
+test('Should render account page correctly', () => {
     const wrapper = shallow(
         <AccountPage store={store} currency={exchanges[0]} startEditCurrency={mockStartEditCurrency} exchanges={exchanges}/>
     );

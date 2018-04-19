@@ -15,7 +15,7 @@ beforeEach((done) => {
     database.ref('exchange').set(testExchangeData).then(() => done());
 });
 
-test('should set exchange data object', () => {
+test('Should set exchange data object', () => {
     const action = setExchange(exchanges);
     expect(action).toEqual({
         type: 'SET_EXCHANGE',
@@ -23,7 +23,7 @@ test('should set exchange data object', () => {
     })
 });
 
-test('should fetch exchange data from firebase', (done) => {
+test('Should fetch exchange data from firebase', (done) => {
     const store = createMockStore(defaultAuthState);
     store.dispatch(startSetExchange()).then(() => {
         const actions = store.getActions();

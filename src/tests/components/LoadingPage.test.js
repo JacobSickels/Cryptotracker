@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store';
 
 import LoadingPage from '../../components/LoadingPage';
 
-test('should render LoadingPage correctly', () => {
+test('Should render LoadingPage correctly', () => {
     const createMockStore = configureMockStore([thunk]);
     const store = createMockStore();
     const wrapper = shallow(<LoadingPage store={store}/>);

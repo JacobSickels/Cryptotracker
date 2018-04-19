@@ -13,7 +13,7 @@ beforeEach(() => {
     store = createMockStore();
 });
 
-test('should render single crypto page correctly', () => {
+test('Should render single crypto page correctly', () => {
     const wrapper = shallow(
         <SingleCrypto store={store} name="bitcoin"/>
     );

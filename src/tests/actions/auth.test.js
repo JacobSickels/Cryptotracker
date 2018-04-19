@@ -1,7 +1,7 @@
 import { login, logout } from '../../actions/auth';
 
 
-test('should setup login action object', () => {
+test('Should setup login action object', () => {
     const uid = '1234';
     const action = login(uid);
     expect(action).toEqual({
@@ -10,7 +10,7 @@ test('should setup login action object', () => {
     });
 });
 
-test('should setup logout action object', () => {
+test('Should setup logout action object', () => {
     const action = logout();
     expect(action).toEqual({
         type: 'LOGOUT'
