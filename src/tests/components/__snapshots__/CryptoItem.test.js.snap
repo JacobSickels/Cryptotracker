@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render CryptoItem correctly 1`] = `
+<div
+  className="chart"
+>
+  <div
+    className="chart-title"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="chart-title--container"
+      >
+        <div>
+          <Link
+            className="chart-title__link"
+            replace={false}
+            to="/filter/bitcoin"
+          >
+            <h1>
+               
+              bitcoin
+               
+            </h1>
+          </Link>
+        </div>
+        <div
+          className="chart-title__amount"
+        >
+          <h1>
+            ؋
+             
+            222222
+          </h1>
+        </div>
+        <div
+          className="chart-title--percentage"
+        >
+          <h1
+            style={
+              Object {
+                "color": "green",
+              }
+            }
+          >
+            80.00
+            %
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      className="button-container"
+    >
+      <button
+        className="button--trend"
+        onClick={[Function]}
+      >
+        Hide Trend
+      </button>
+    </div>
+    <div
+      className="chart-container"
+    >
+      <ResponsiveContainer
+        debounce={0}
+        height="100%"
+        width="100%"
+      >
+        <LineChart
+          barCategoryGap="10%"
+          barGap={4}
+          data={
+            Array [
+              Object {
+                "amount": 123456,
+                "timestamp": "6pm",
+                "trend": 123456,
+              },
+              Object {
+                "amount": 222222,
+                "timestamp": "6pm",
+                "trend": 222222,
+              },
+            ]
+          }
+          layout="horizontal"
+          margin={
+            Object {
+              "bottom": 5,
+              "left": 30,
+              "right": 10,
+              "top": 5,
+            }
+          }
+          reverseStackOrder={false}
+          stackOffset="none"
+        >
+          <XAxis
+            allowDataOverflow={false}
+            allowDecimals={true}
+            allowDuplicatedCategory={true}
+            dataKey="timestamp"
+            domain={
+              Array [
+                0,
+                "auto",
+              ]
+            }
+            height={30}
+            hide={false}
+            mirror={false}
+            orientation="bottom"
+            padding={
+              Object {
+                "left": 0,
+                "right": 0,
+              }
+            }
+            reversed={false}
+            scale="auto"
+            tickCount={5}
+            type="category"
+            width={0}
+            xAxisId={0}
+          />
+          <YAxis
+            allowDataOverflow={true}
+            allowDecimals={true}
+            allowDuplicatedCategory={true}
+            dataKey="amount"
+            domain={
+              Array [
+                "dataMin",
+                "dataMax",
+              ]
+            }
+            height={0}
+            hide={false}
+            mirror={false}
+            orientation="left"
+            padding={
+              Object {
+                "bottom": 0,
+                "top": 0,
+              }
+            }
+            reversed={false}
+            scale="auto"
+            tickCount={5}
+            tickSize={10}
+            type="number"
+            width={60}
+            yAxisId={0}
+          />
+          <CartesianGrid
+            fill="none"
+            horizontal={true}
+            horizontalFill={Array []}
+            horizontalPoints={Array []}
+            stroke="#FFDDED"
+            strokeDasharray="3 3"
+            vertical={true}
+            verticalFill={Array []}
+            verticalPoints={Array []}
+          />
+          <Tooltip
+            active={false}
+            animationDuration={400}
+            animationEasing="ease"
+            coordinate={
+              Object {
+                "x": 0,
+                "y": 0,
+              }
+            }
+            cursor={true}
+            cursorStyle={Object {}}
+            filterNull={true}
+            isAnimationActive={true}
+            itemSorter={[Function]}
+            itemStyle={Object {}}
+            labelStyle={Object {}}
+            offset={10}
+            separator=" : "
+            useTranslate3d={false}
+            viewBox={
+              Object {
+                "x1": 0,
+                "x2": 0,
+                "y1": 0,
+                "y2": 0,
+              }
+            }
+            wrapperStyle={Object {}}
+          />
+          <Legend
+            align="center"
+            iconSize={14}
+            layout="horizontal"
+            verticalAlign="bottom"
+          />
+          <Line
+            activeDot={true}
+            animationBegin={0}
+            animationDuration={1500}
+            animationEasing="ease"
+            connectNulls={false}
+            dataKey="trend"
+            dot={false}
+            fill="#fff"
+            hide={false}
+            isAnimationActive={true}
+            legendType="line"
+            onAnimationEnd={[Function]}
+            onAnimationStart={[Function]}
+            points={Array []}
+            stroke="#E477D4"
+            strokeWidth={4}
+            type="monotone"
+            xAxisId={0}
+            yAxisId={0}
+          />
+          <Line
+            activeDot={true}
+            animationBegin={0}
+            animationDuration={1500}
+            animationEasing="ease"
+            connectNulls={false}
+            dataKey="amount"
+            dot={false}
+            fill="#fff"
+            hide={false}
+            isAnimationActive={true}
+            legendType="line"
+            onAnimationEnd={[Function]}
+            onAnimationStart={[Function]}
+            points={Array []}
+            stroke="#7F4276"
+            strokeWidth={1}
+            type="monotone"
+            xAxisId={0}
+            yAxisId={0}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+</div>
+`;

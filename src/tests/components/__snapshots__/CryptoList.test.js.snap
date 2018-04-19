@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render CryptoList correctly 1`] = `
+<div>
+  <Connect(CryptoItem)
+    name="Bitcoin"
+  />
+  <Connect(CryptoItem)
+    name="Litecoin"
+  />
+  <Connect(CryptoItem)
+    name="Ethereum"
+  />
+</div>
+`;

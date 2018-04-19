@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render CryptoInfo correctly 1`] = `
+<div
+  className="chart-info"
+>
+  <div
+    className="container"
+  >
+    <Row>
+      <Col
+        l={4}
+        m={4}
+        s={12}
+      >
+        <h1>
+           Max Increase 
+        </h1>
+      </Col>
+      <Col
+        l={4}
+        m={4}
+        s={12}
+      >
+        <h1>
+          Time To Buy
+        </h1>
+        <em>
+          6pm Dec 31st 1969
+        </em>
+        <p>
+          123456
+        </p>
+      </Col>
+      <Col
+        l={4}
+        m={4}
+        s={12}
+      >
+        <h1>
+          Time To Sell
+        </h1>
+        <em>
+          6pm Dec 31st 1969
+        </em>
+        <p>
+          222222
+        </p>
+      </Col>
+    </Row>
+  </div>
+</div>
+`;
