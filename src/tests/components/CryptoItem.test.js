@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
-
 import { CryptoItem } from '../../components/CryptoItem';
 import cryptos from '../fixtures/cryptos';
 import getTrendData from '../../selectors/trend';
 
+//This test makes sure that CryptoItem is rendered correctly
 test('Should render CryptoItem correctly', () => {
 
     const currency = {

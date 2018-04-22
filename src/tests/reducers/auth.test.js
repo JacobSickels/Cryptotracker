@@ -1,5 +1,6 @@
 import authReducer from '../../reducers/auth';
 
+//This test makes sure the authReducer sets the uid in Redux on login
 test('Should set uid for login', () => {
     const action = {
         type: 'LOGIN',
@@ -9,6 +10,7 @@ test('Should set uid for login', () => {
     expect(state.uid).toBe(action.uid);
 });
 
+//This test makes sure the authReducer clears the uid in Redux on logout
 test('Should clear uid for logout', () => {
     const action = {
         type: 'LOGOUT'

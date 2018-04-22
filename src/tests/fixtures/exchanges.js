@@ -1,3 +1,4 @@
+//This fixture is used as test data in other test cases
 export default [
     {
         "exchange_rate": "3.67",

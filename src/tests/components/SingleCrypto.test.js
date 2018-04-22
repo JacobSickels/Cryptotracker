@@ -1,22 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store';
-
 import { SingleCrypto } from '../../components/SingleCrypto';
 
-let store;
-
-beforeEach(() => {
-    const createMockStore = configureMockStore([thunk]);
-    store = createMockStore();
-});
-
-test('Should render single crypto page correctly', () => {
-    const wrapper = shallow(
-        <SingleCrypto store={store} name="bitcoin"/>
-    );
+//This test makes sure the SingleCrypto component is rendered correctly
+test('Should render SingleCrypto page correctly', () => {
+    const wrapper = shallow(<SingleCrypto name="bitcoin"/>);
     expect(wrapper).toMatchSnapshot();
 });
 

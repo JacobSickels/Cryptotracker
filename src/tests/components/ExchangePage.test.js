@@ -3,11 +3,9 @@ import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-
 import { ExchangePage } from '../../components/ExchangePage';
 import exchanges from '../fixtures/exchanges'
 
-let store;
 let startSetExchange;
 let wrapper;
 
@@ -25,13 +23,12 @@ const fromExchange = {
     "symbol": "؋"
 };
 
+//This method is run before each test case below it
 beforeEach(() => {
-    const createMockStore = configureMockStore([thunk]);
-    store = createMockStore();
     startSetExchange = jest.fn();
 
     wrapper = shallow(
-        <ExchangePage store={store} 
+        <ExchangePage
         startSetExchange={startSetExchange} 
         to_element={toExchange} 
         from_element={fromExchange}
@@ -39,10 +36,12 @@ beforeEach(() => {
         />);
 });
 
-test('Should render exchange page correctly', () => {
+//This test makes sure that ExchangePage is rendered correctly
+test('Should render ExchangePage correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
+//This test makes sure that changing input amount edits component state
 test('Use Case #4.1: Should handle amount change', () => {
     const value = "12345.64";
     wrapper.find('#amount-input').at(0).simulate('change', {
@@ -51,6 +50,7 @@ test('Use Case #4.1: Should handle amount change', () => {
     expect(wrapper.state('amount')).toEqual(value);
 });
 
+//This test makes sure that changing base currency dropdown edits component state
 test('Use Case #4.2: Should handle base currency change', () => {
     const value = toExchange.id;
     wrapper.find('#base-currency').at(0).simulate('change', {
@@ -59,6 +59,7 @@ test('Use Case #4.2: Should handle base currency change', () => {
     expect(wrapper.state('from_element')).toEqual(toExchange);
 });
 
+//This test makes sure that changing the conversion currency dropdown edits component state
 test('Use Case #4.3: Should handle conversion currency change', () => {
     const value = toExchange.id;
     wrapper.find('#conversion-currency').at(0).simulate('change', {
@@ -67,6 +68,8 @@ test('Use Case #4.3: Should handle conversion currency change', () => {
     expect(wrapper.state('to_element')).toEqual(toExchange);
 });
 
+// This test makes sure that if non-number data is entered in the amount input, 
+// that the component state amount is set to zero
 test('Should handle onAmountChange when amount is NaN', () => {
     const value = "abc123";
     wrapper.find('#amount-input').at(0).simulate('change', {

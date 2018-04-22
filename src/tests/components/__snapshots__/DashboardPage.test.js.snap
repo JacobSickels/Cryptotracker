@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render dashboard page correctly 1`] = `
+exports[`Should render DashboardPage correctly 1`] = `
 <div>
   <div
     className="page-container"

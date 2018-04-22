@@ -17,18 +17,22 @@ import {
 const uid = '123abc678def';
 const defaultAuthState = { auth: { uid }};
 const createMockStore = configureMockStore([thunk]);
+let currency;
 
+//This method is run before each test case below it
 beforeEach((done) => {
-    const testCurrency = {
+    currency = {
         "exchange_rate": "3.67",
         "id": "AED",
         "name": "United Arab Emirates Dirham",
         "symbol": "د.إ"
     };
-    database.ref(`users/${uid}/currency`).set(testCurrency).then(() => done());
+    //This sets reference to the base currency on the user id from test database
+    database.ref(`users/${uid}/currency`).set(currency).then(() => done());
 });
 
-test('should setup start date filter object', () => {
+//This test makes sure the start date action object is created correctly
+test('Should setup start date filter object', () => {
     const action = setStartDate(moment(0));
     expect(action).toEqual({
         type: 'SET_START_DATE',
@@ -36,7 +40,8 @@ test('should setup start date filter object', () => {
     });
 });
 
-test('should setup end date filter object', () => {
+//This test makes sure that the end date action object is created correctly
+test('Should setup end date filter object', () => {
     const action = setEndDate(moment(0));
     expect(action).toEqual({
         type: 'SET_END_DATE',
@@ -44,7 +49,8 @@ test('should setup end date filter object', () => {
     });
 });
 
-test('should setup default filter object', () => {
+//This test makes sure that the default filter state object is created correctly
+test('Should setup default filter object', () => {
     const action = setDefaultFilter();
     expect(action).toEqual({
         type: 'SET_DEFAULT_DATES',
@@ -55,7 +61,8 @@ test('should setup default filter object', () => {
     });
 });
 
-test('should setup currency filter object', () => {
+//This test makes sure that the currency filter object is created correctly
+test('Should setup currency filter object', () => {
     const currency = {
         "exchange_rate": "3.67",
         "id": "AED",
@@ -70,14 +77,8 @@ test('should setup currency filter object', () => {
     });
 });
 
-test('should get currency object from user section of database', (done) => {
-    const currency = {
-        "exchange_rate": "3.67",
-        "id": "AED",
-        "name": "United Arab Emirates Dirham",
-        "symbol": "د.إ"
-    };
-    
+//This test makes sure that the base currency in the database was set to the currency object
+test('Should get currency object from user section of database', (done) => {
     const store = createMockStore(defaultAuthState);
     store.dispatch(startSetCurrency()).then(() => {
         const actions = store.getActions();
@@ -89,6 +90,7 @@ test('should get currency object from user section of database', (done) => {
     });
 });
 
+//This test makes sure that startEditCurrency sets the base currency in the database for a user
 test('should set currency object on user in firebase', (done) => {
     const currency = {
         "exchange_rate": "106.31",

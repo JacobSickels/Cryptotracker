@@ -1,7 +1,7 @@
 import filtersReducer from '../../reducers/filters';
 import moment from 'moment';
 
-//Should set default filter values
+//This test should set default filter values on initialization of filtersReducer
 test('Should setup default filter values', () => {
     const state = filtersReducer(undefined, { type: '@@INIT' });
     expect(state).toEqual(
@@ -17,7 +17,7 @@ test('Should setup default filter values', () => {
     });
 });
 
-//Should set startDate filter (retrieved from tutorial)
+//This test should set startDate filter (retreived from tutorial)
 test('Should set startDate filter', () => {
     const startDate = moment();
     const action = {
@@ -28,7 +28,7 @@ test('Should set startDate filter', () => {
     expect(state.startDate).toEqual(startDate);
 });
 
-//Should set endDate filter (retrieved from tutorial)
+//This test should set endDate filter (retreived from tutorial)
 test('Should set endDate filter', () => {
     const endDate = moment();
     const action = {
@@ -39,6 +39,7 @@ test('Should set endDate filter', () => {
     expect(state.endDate).toEqual(endDate);
 });
 
+//This test should set base currency object filter
 test('Should set currency object', () => {
     const currency = {
         "exchange_rate": "20.14",
