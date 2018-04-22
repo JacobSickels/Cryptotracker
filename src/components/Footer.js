@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-export const Footer = () => (
+/*
+    Footer is a Redux Compont that is responsible for rendering the Footer
+    contents on every page.
+*/
+
+const Footer = () => (
     <div className="footer">
         <div className="container">
             <p>If you are interested in how this project was made, check out the 
-                <Link to="/docs">Documentation</Link></p>
+                <a href="#">Documentation</a></p>
         </div>
         <div className="footer-end">
             <div className="container">

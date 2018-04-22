@@ -2,7 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
-import { Dropdown, NavItem, Button } from 'react-materialize';
+import { Dropdown } from 'react-materialize';
+
+/*
+    Header is a React Component that is responsible for the navigation of the application
+    There are many buttons in the Header component that (Link) to other pages.
+    
+    When a Link is clicked in the Header, the url is appended to and the AppRouter serves
+    the correct page associated with the url. See AppRouter for more information.
+*/
 
 export const Header = ({ startLogout }) => (
     <header className="header">
@@ -43,8 +51,13 @@ export const Header = ({ startLogout }) => (
     </header>
 );
 
+/*
+    This function takes Redux dispatch actions and maps them to a function
+    The startLogout function is called when the Logout button is clicked in the Header
+*/
 const mapDispatchToProps = (dispatch) => ({
     startLogout: () => dispatch(startLogout())
 });
 
+//This creates a Higher Order Component letting the component access the Redux dispatch actions
 export default connect(undefined, mapDispatchToProps)(Header);

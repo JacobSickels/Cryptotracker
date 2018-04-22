@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render footer correctly 1`] = `
+exports[`Should render footer correctly 1`] = `
 <div
   className="footer"
 >
@@ -9,12 +9,11 @@ exports[`should render footer correctly 1`] = `
   >
     <p>
       If you are interested in how this project was made, check out the
-      <Link
-        replace={false}
-        to="/docs"
+      <a
+        href="#"
       >
         Documentation
-      </Link>
+      </a>
     </p>
   </div>
   <div

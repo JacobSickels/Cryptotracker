@@ -7,7 +7,9 @@ import exchangesReducer from '../reducers/exchange';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// Store Creation
+/*
+    This function is responsible for combining all of the reducers into a single Redux store
+*/
 
 export default () => {
     const store = createStore(

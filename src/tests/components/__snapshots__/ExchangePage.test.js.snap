@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render exchange page correctly 1`] = `
+exports[`Should render exchange page correctly 1`] = `
 <div
   className="page-container"
 >
@@ -10,18 +10,18 @@ exports[`should render exchange page correctly 1`] = `
     <div
       className="container"
     >
-      <h1>
+      <h3>
          
         1
          
         Afghan Afghani
-      </h1>
-      <h1>
+      </h3>
+      <h3>
          
         0.29
          
         Argentine Peso
-      </h1>
+      </h3>
     </div>
   </div>
   <div
@@ -39,6 +39,23 @@ exports[`should render exchange page correctly 1`] = `
         s={5}
         type="text"
       />
+      <Col
+        className="arrow"
+        s={2}
+      >
+        <Icon
+          medium={true}
+        >
+          arrow_forward
+        </Icon>
+      </Col>
+      <div
+        s={5}
+      >
+        <h3>
+          0.29
+        </h3>
+      </div>
     </Row>
     <Row
       className="selector"

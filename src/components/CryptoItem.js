@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; //Eventually linking to the specific cryptos page for more specific filtering
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
@@ -7,11 +7,21 @@ import { selectCryptos } from '../selectors/cryptos';
 import { convertToExchange } from '../selectors/exchanges';
 import getTrendData from '../selectors/trend';
 
+/*
+    
+    CryptoItem is a React Component that contains all of the functionality needed
+    to graph the specific cryptocurrency's data as well as showing the current price
+    and current percentage increase for the cryptocurrency
+
+*/
+
+
 export class CryptoItem extends React.Component {
     
     constructor(props) {
         super(props);
 
+        //Component state to keep track of showing and hiding trend line.
         this.state = {
             showTrendLine: true
         }
@@ -48,6 +58,7 @@ export class CryptoItem extends React.Component {
                     <div className="button-container">
                         <button className="button--trend"
                             onClick={() => {
+                                //Function for updating state to show or hide trend line
                                 const show = this.state.showTrendLine;
                                 this.setState({showTrendLine: !show})
                             }}>
@@ -65,6 +76,7 @@ export class CryptoItem extends React.Component {
                                 <Tooltip/>
                                 <Legend />
                                 {
+                                    //Inline function for showing and hiding trend line on graph
                                     (this.state.showTrendLine) && (
                                         <Line dot={false} type="monotone" dataKey="trend" stroke="#E477D4" strokeWidth={4}/>
                                     )
@@ -79,20 +91,32 @@ export class CryptoItem extends React.Component {
     };
 }
 
+
+/*
+
+    This function maps Redux state to props that are passed into the component
+    
+    This function relies on the selectCryptos function that resides in selectors/cryptos
+    Crypto data is selected in the filtering range for the specific crypto
+    The selected data is converted to the currency defined by the exchange rate
+    Then the data is passed as props to the component
+
+*/
 const mapStateToProps = (state, props) => {
 
     let crypto = selectCryptos(state.cryptos, state.filters)[props.name.toLowerCase()];
 
     const exchangeRate = parseFloat(state.filters.currency.exchange_rate);
 
-    //converting amounts to exchange rate
+    //Converting crypto amounts to the exchange rate chosen fron Redux state
     crypto = convertToExchange(exchangeRate, crypto);
 
     return {
         ...getTrendData(crypto),
-        currency_symbol: state.filters.currency.symbol
+        currency_symbol: state.filters.currency.symbol //The currency symbol for the base currency
     }
     
 };
 
+//This creates a Higher Order Component letting the component access the Redux state
 export default connect(mapStateToProps)(CryptoItem);

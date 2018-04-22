@@ -2,32 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { Row, Col } from 'react-materialize';
+import { getMaxMinData } from '../selectors/cryptos';
 
-import { selectCryptos, getMaxMinData } from '../selectors/cryptos';
+/*
+    CryptoInfo is a React Component that contains information on when it 
+    was the best time to buy and sell during the filtering period.
+*/
 
 export class CryptoInfo extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            maxDifference: () => {
-                const crypto = props.data;
-    
-                let maxDifference = 0;
-                let minElement = crypto[0].amount;
-                
-                for(var i = 1; i < crypto.length; i++) {
-                    if(crypto[i].amount - minElement > maxDifference) {
-                        maxDifference = crypto[i].amount - minElement;
-                    }
-                    if(crypto[i] < minElement) {
-                        minElement = crypto[i].amount;
-                    }
-                }
-                return maxDifference.toFixed(2);
-            }
-        }
     }
 
     render() {
@@ -57,9 +42,17 @@ export class CryptoInfo extends React.Component {
 
 }
 
+/*
+
+    This function maps Redux state to props that are passed into the component
+    
+    This function relies on the getMaxMinData function that resides in selectors/cryptos
+    The data is seperated into a object and the key values from the object are passed as props
+
+*/
 const mapStateToProps = (state, props) => {
     const data = getMaxMinData(state.cryptos, state.filters, props.name.toLowerCase());
     return { ...data }
 };
-
+//This creates a Higher Order Component letting the component access the Redux state
 export default connect(mapStateToProps)(CryptoInfo);
