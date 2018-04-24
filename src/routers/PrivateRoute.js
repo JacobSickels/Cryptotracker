@@ -29,9 +29,4 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-
-//map dispatch to props and get cryptos
-//React Router is taking over when we authenticate user, and public route is pushing to private route
-//The dispatch in app.js isn't able to run in time.
-
 export default connect(mapStateToProps)(PrivateRoute);

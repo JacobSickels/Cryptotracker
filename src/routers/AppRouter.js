@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
-
 import AccountPage from '../components/AccountPage';
 import DashboardPage from '../components/DashboardPage';
 import ExchangePage from '../components/ExchangePage';

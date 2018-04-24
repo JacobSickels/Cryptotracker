@@ -1,6 +1,6 @@
 /*
     This is the sortExchanges method used in other Components
-    This function is reponsible for sorting the exchange data alphabnetically
+    This function is responsible  for sorting the exchange data alphabetically
 */
 export default (exchanges) => {
 

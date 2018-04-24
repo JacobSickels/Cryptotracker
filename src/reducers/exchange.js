@@ -10,7 +10,7 @@
 */
 export default (state = [], action) => {
     switch(action.type) {
-        //The SET_EXCHANGE action obeject updates the state to the exchanges attached to the action
+        //The SET_EXCHANGE action object updates the state to the exchanges attached to the action
         case 'SET_EXCHANGE':
             return action.exchanges;
         //When there is no action, the current state is returned      

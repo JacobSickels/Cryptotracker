@@ -1,8 +1,8 @@
 import React from 'react';
 
 /*
-    Footer is a Redux Compont that is responsible for rendering the Footer
-    contents on every page.
+    Footer is a React Component that is responsible for 
+    rendering the footer contents on every page.
 */
 
 const Footer = () => (
