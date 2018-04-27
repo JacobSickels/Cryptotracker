@@ -22,7 +22,7 @@ export class ExchangePage extends React.Component {
             conversion: (amount) => {
                 //This function converts the amount to the conversion currency
                 let conv = (this.state.from_element) ? (amount / this.state.from_element.exchange_rate) * this.state.to_element.exchange_rate : 0;
-                //Floating point numbers give weird error when inputs are the same value, value should be equal to amount
+                //Floating point numbers give weird error when inputs are the same value, value should be equal to amount 
                 if(this.state.from_element.id === this.state.to_element.id){
                     conv = parseFloat(amount);
                 }
