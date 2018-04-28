@@ -47,10 +47,9 @@ export class ExchangePage extends React.Component {
     //Called when the Amount field is changed
     onAmountChange = (e) => {
         let amount = e.target.value;
-        if(!amount || isNaN(amount)) {
-            amount = 1;
+        if(!amount || amount.match(/^\d{1,10}(\.\d{0,2})?$/)){
+            this.setState(()=> ({ amount }));
         }
-        this.setState({ amount });
     }
     
     render() {
@@ -58,13 +57,20 @@ export class ExchangePage extends React.Component {
             <div className="page-container">
                 <div className="exchange-display">
                     <div className="container"> 
-                        <h3> {this.state.amount} {this.state.from_element.name}</h3>
+                        <h3> {(this.state.amount) ? this.state.amount : 0} {this.state.from_element.name}</h3>
                         <h3> {this.state.conversion(this.state.amount)} {this.state.to_element.name}</h3>
                     </div>
                 </div>
                 <div className="container exchange">
                     <Row className="selector">
-                        <Input id="amount-input" s={5} label="Input Amount" defaultValue='1' onChange={this.onAmountChange} />
+                        <Col s={5}>
+                            <input 
+                                type="text"
+                                placeholder="Amount"
+                                value={this.state.amount}
+                                onChange={this.onAmountChange}
+                            />
+                        </Col>
                         <Col s={2} className="arrow">
                             <Icon medium>arrow_forward</Icon>
                         </Col>
