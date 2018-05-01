@@ -10,7 +10,7 @@ exports[`Should render footer correctly 1`] = `
     <p>
       If you are interested in how this project was made, check out the
       <a
-        href="#"
+        href="./res/Capstone.pdf"
       >
         Documentation
       </a>

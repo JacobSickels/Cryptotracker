@@ -6,7 +6,6 @@ import configureMockStore from 'redux-mock-store';
 import { ExchangePage } from '../../components/ExchangePage';
 import exchanges from '../fixtures/exchanges'
 
-let startSetExchange;
 let wrapper;
 
 const toExchange = {
@@ -25,11 +24,9 @@ const fromExchange = {
 
 //This method is run before each test case below it
 beforeEach(() => {
-    startSetExchange = jest.fn();
 
     wrapper = shallow(
         <ExchangePage
-        startSetExchange={startSetExchange} 
         to_element={toExchange} 
         from_element={fromExchange}
         exchanges={exchanges} 

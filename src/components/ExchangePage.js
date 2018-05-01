@@ -64,7 +64,8 @@ export class ExchangePage extends React.Component {
                 <div className="container exchange">
                     <Row className="selector">
                         <Col s={5}>
-                            <input 
+                            <input
+                                id="amount-input" 
                                 type="text"
                                 placeholder="Amount"
                                 value={this.state.amount}

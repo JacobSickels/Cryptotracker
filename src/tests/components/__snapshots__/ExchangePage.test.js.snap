@@ -30,15 +30,17 @@ exports[`Should render ExchangePage correctly 1`] = `
     <Row
       className="selector"
     >
-      <Input
-        checked={false}
-        defaultValue="1"
-        id="amount-input"
-        label="Input Amount"
-        onChange={[Function]}
+      <Col
         s={5}
-        type="text"
-      />
+      >
+        <input
+          id="amount-input"
+          onChange={[Function]}
+          placeholder="Amount"
+          type="text"
+          value={1}
+        />
+      </Col>
       <Col
         className="arrow"
         s={2}
