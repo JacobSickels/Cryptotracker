@@ -38,26 +38,28 @@ const jsx = (
     </Provider>
 );
 
+
+//Rendering Loading Page while app is loading
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
 //Renders AppRouter which displays the correct page
 const renderApp = () => {
     ReactDOM.render(jsx, document.getElementById('app'));
 };
 
-//Rendering Loading Page while app is loading
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
-
 firebase.auth().onAuthStateChanged((user) => {
-    ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
     if(user) {
         
         //Dispatching user id to Redux store
         store.dispatch(login(user.uid));
         
-        //Gets crypto data for graphing
-        store.dispatch(startSetCryptos()).then(() => {
-            
-            //Gets default currency from account
-            store.dispatch(startSetCurrency()).then(() => {
+        //Gets default currency from account
+        store.dispatch(startSetCurrency()).then(() => {
+
+            //Gets crypto data for graphing
+            store.dispatch(startSetCryptos()).then(() => {
+ 
                 //Gets exchange rates and puts them in redux state
                 store.dispatch(startSetExchange());
     
@@ -66,7 +68,7 @@ firebase.auth().onAuthStateChanged((user) => {
                     history.push('/dashboard');
                 }
                 
-                renderApp(); 
+                renderApp();
             });
             
 

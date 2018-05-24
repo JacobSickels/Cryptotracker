@@ -36,21 +36,15 @@ export const startSetCryptos = () => {
                     
                     if(childSnapshot.key === 'bitcoin') {
                         //For each uuid key under 'bitcoin' get the value and push it to cryptos.bitcoin array
-                        Object.keys(childSnapshot.val()).forEach(function(key) {
-                            cryptos.bitcoin.push(childSnapshot.val()[key]);
-                        });
+                        cryptos.bitcoin = Object.values(childSnapshot.val());
                     }
                     else if(childSnapshot.key === 'litecoin') {
                         //For each uuid key under 'litecoin' get the value and push it to cryptos.litecoin array
-                        Object.keys(childSnapshot.val()).forEach(function(key) {
-                            cryptos.litecoin.push(childSnapshot.val()[key]);
-                        });
+                        cryptos.litecoin = Object.values(childSnapshot.val());
                     }
                     else {
                         //For each uuid key under 'ethereum' get the value and push it to cryptos.ethereum array
-                        Object.keys(childSnapshot.val()).forEach(function(key) {
-                            cryptos.ethereum.push(childSnapshot.val()[key]);
-                        });
+                        cryptos.ethereum = Object.values(childSnapshot.val());
                     }
 
                 });
