@@ -23,5 +23,5 @@ This application couldn't have been created without these tools and resources.
 - [Yarn](https://yarnpkg.com/en/)
 - [**Tutorial Course**](https://www.udemy.com/react-2nd-edition/)
 
-### Author
+## Author
 This application was created by [Jacob Sickels](http://jacobsickels.com).
