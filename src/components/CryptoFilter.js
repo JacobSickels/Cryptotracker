@@ -50,7 +50,7 @@ export class CryptoFilter extends React.Component {
                         minimumNights={0}
                         showClearDates={true}
                         isOutsideRange={(day) => {
-                            const today = moment();
+                            const today = moment().endOf('day');
                             return day.isAfter(today) || day.isBefore("2018-03-01");
                         }}
                     />
